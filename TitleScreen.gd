@@ -24,3 +24,9 @@ func _quit():
 	
 func _toggle_fullscreen():
 	OS.window_fullscreen = !OS.window_fullscreen
+	if OS.window_fullscreen:
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_EXPAND, OS.window_size)
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED,  SceneTree.STRETCH_ASPECT_EXPAND, OS.window_size)
+	else:
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_KEEP, Vector2(1280,720))
+	

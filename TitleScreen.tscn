@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://title-background.jpg" type="Texture" id=2]
@@ -6,10 +6,8 @@
 [ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://font/aileron/Aileron-Light.otf" type="DynamicFontData" id=5]
 
-[sub_resource type="Theme" id=1]
-
 [sub_resource type="DynamicFont" id=2]
-size = 80
+size = 64
 outline_size = 3
 outline_color = Color( 0.403922, 0.101961, 0.101961, 1 )
 font_data = ExtResource( 3 )
@@ -65,41 +63,44 @@ expand = true
 stretch_mode = 7
 
 [node name="Menu" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 120.0
-margin_top = 81.3604
-margin_right = -120.0
-margin_bottom = -78.6396
-theme = SubResource( 1 )
+anchor_left = 0.172
+anchor_top = 0.5
+anchor_right = 0.834
+anchor_bottom = 0.87
+margin_left = -0.425507
+margin_top = -277.538
+margin_right = 0.214478
+margin_bottom = 0.0617676
 custom_constants/separation = 40
 alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
-margin_top = 126.0
-margin_right = 1040.0
-margin_bottom = 223.0
-size_flags_vertical = 1
+margin_top = 128.0
+margin_right = 848.0
+margin_bottom = 206.0
+size_flags_horizontal = 15
+size_flags_vertical = 13
 custom_fonts/font = SubResource( 2 )
 text = "Not a Haloween Game*"
 align = 1
 valign = 3
+autowrap = true
 
 [node name="PlayButton" type="Button" parent="Menu"]
-margin_left = 462.0
-margin_top = 263.0
-margin_right = 577.0
-margin_bottom = 328.0
+margin_left = 366.0
+margin_top = 246.0
+margin_right = 481.0
+margin_bottom = 311.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 3 )
 text = "Play"
 script = SubResource( 4 )
 
 [node name="QuitButton" type="Button" parent="Menu"]
-margin_left = 463.0
-margin_top = 368.0
-margin_right = 577.0
-margin_bottom = 433.0
+margin_left = 367.0
+margin_top = 351.0
+margin_right = 481.0
+margin_bottom = 416.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 3 )
 shortcut = SubResource( 6 )

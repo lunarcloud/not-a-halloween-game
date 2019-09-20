@@ -50,13 +50,13 @@ custom_fonts/font = SubResource( 5 )
 text = "pretend explore world..."
 
 [node name="DialogBox" type="NinePatchRect" parent="CanvasLayer"]
-anchor_left = 0.5
+anchor_left = 0.1
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 0.9
 anchor_bottom = 1.0
-margin_left = -620.0
+margin_left = -108.0
 margin_top = -263.68
-margin_right = 620.0
+margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
