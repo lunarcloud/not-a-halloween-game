@@ -17,7 +17,7 @@ font_data = ExtResource( 2 )
 size = 48
 font_data = ExtResource( 3 )
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=4]
 script/source = "extends Button
 
 # Declare member variables here. Examples:
@@ -41,7 +41,7 @@ scancode = 81
 [sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 4 )
 
@@ -79,7 +79,7 @@ margin_bottom = 328.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 3 )
 text = "Play"
-script = SubResource( 7 )
+script = SubResource( 4 )
 
 [node name="QuitButton" type="Button" parent="Menu"]
 margin_left = 463.0
@@ -96,6 +96,6 @@ margin_left = 2.0
 margin_top = 664.0
 margin_right = 291.0
 margin_bottom = 717.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Version 0.0.1
 © 2019 Sam & Zach Sarette"
