@@ -9,10 +9,14 @@ func _ready():
 	story.LoadStory("ink/main.json")
 	label.set_text("loading story...")
 	print("loading story...")
+	
 	story.connect("InkContinued", self, "_on_story_continued")
 	story.connect("InkChoices", self, "_on_choices")
-	continueButton.connect("pressed", story, "Continue")	
 	story.Continue()
+	
+	continueButton.grab_focus()
+	continueButton.connect("pressed", story, "Continue")	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
