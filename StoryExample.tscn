@@ -1,22 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://godot-ink/addons/paulloz.ink/Story.cs" type="Script" id=2]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=3]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=4]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="ButtonGroup" id=4]
 
@@ -33,30 +37,29 @@ InkFilePath = ""
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 
-[node name="PretendExplore" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 545.585
-margin_top = 327.694
-margin_right = 790.585
-margin_bottom = 389.694
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PretendExplore" type="Button" parent="CanvasLayer"]
+anchor_left = 0.416
+anchor_top = 0.356
+anchor_right = 0.594
+anchor_bottom = 0.452
 size_flags_horizontal = 0
 size_flags_vertical = 0
+custom_fonts/font = SubResource( 5 )
 text = "pretend explore world..."
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" type="NinePatchRect" parent="CanvasLayer"]
 anchor_top = 0.606
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 0.0151367
+margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -95,6 +98,7 @@ margin_top = 37.0
 margin_right = -46.0
 margin_bottom = -48.0
 custom_constants/separation = 16
+alignment = 1
 
 [node name="Choice1" type="Button" parent="CanvasLayer/DialogBox/ChoicesContainer"]
 margin_right = 341.0

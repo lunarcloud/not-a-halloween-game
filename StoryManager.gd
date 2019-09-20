@@ -2,7 +2,7 @@ extends Node
 
 onready var story = get_node("Story")
 onready var music = get_node("MusicPlayer")
-onready var pretendExplorebutton = get_node("PretendExplore")
+onready var pretendExplorebutton = get_node("CanvasLayer/PretendExplore")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
 onready var label = get_node("CanvasLayer/DialogBox/StoryText")
 onready var continueButton = get_node("CanvasLayer/DialogBox/ContinueButton")
