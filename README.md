@@ -1,6 +1,7 @@
 Not a Halloween Game
 ==========================
 Sam and Zach's InkJam 2019 Project
+https://itch.io/jam/inkjam-2019
 
 Submodules
 -----------
