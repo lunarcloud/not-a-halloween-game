@@ -1,15 +1,16 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var play = get_node("Menu/PlayButton")
+onready var quit = get_node("Menu/QuitButton")
+onready var fullscreenToggle = get_node("FullscreenToggle")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Menu/PlayButton.grab_focus()
-	$Menu/PlayButton.connect("pressed", self, "_play")
-	$Menu/QuitButton.connect("pressed", self, "_quit")
-	
+	play.grab_focus()
+	play.connect("pressed", self, "_play")
+	quit.connect("pressed", self, "_quit")
+	fullscreenToggle.pressed = OS.window_fullscreen
+	fullscreenToggle.connect("pressed", self, "_toggle_fullscreen")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -20,3 +21,6 @@ func _play():
 	
 func _quit():
 	get_tree().quit()
+	
+func _toggle_fullscreen():
+	OS.window_fullscreen = !OS.window_fullscreen

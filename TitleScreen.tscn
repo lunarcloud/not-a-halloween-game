@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=2]
@@ -44,6 +44,10 @@ shortcut = SubResource( 5 )
 [sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 2 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -92,10 +96,28 @@ shortcut = SubResource( 6 )
 text = "Quit"
 
 [node name="Version" type="Label" parent="."]
+anchor_top = 0.922
+anchor_right = 0.227
+anchor_bottom = 1.0
 margin_left = 2.0
-margin_top = 664.0
-margin_right = 291.0
-margin_bottom = 717.0
+margin_top = 0.159973
+margin_right = 0.439972
+margin_bottom = -3.0
 custom_fonts/font = SubResource( 7 )
 text = "Version 0.0.1
 © 2019 Sam & Zach Sarette"
+
+[node name="FullscreenToggle" type="CheckButton" parent="."]
+anchor_left = 0.845
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.600098
+margin_top = -0.200073
+margin_right = -5.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 8 )
+text = "Fullscreen"
+align = 2
