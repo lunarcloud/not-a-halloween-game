@@ -10,5 +10,20 @@ script = ExtResource( 1 )
 
 [node name="Story" type="Node2D" parent="StoryManager"]
 script = ExtResource( 2 )
-InkFilePath = "res://ink/main.json"
-AutoLoadStory = true
+InkFilePath = ""
+
+[node name="StoryText" type="Label" parent="StoryManager"]
+margin_left = 8.0
+margin_top = 2.0
+margin_right = 1266.0
+margin_bottom = 500.0
+text = "story not loaded..."
+align = 1
+valign = 1
+
+[node name="ContinueButton" type="Button" parent="StoryManager"]
+margin_left = 518.788
+margin_top = 590.557
+margin_right = 848.788
+margin_bottom = 715.557
+text = "Continue"

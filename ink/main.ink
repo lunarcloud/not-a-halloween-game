@@ -3,4 +3,15 @@
 */
 // INCLUDE other.ink
 
-hello world.
+-> start
+
+== start
+
+hello world!
+
+This is an ink-powered story.
+
+* Wait
+* Choices [Here] have consequences
+
+- -> END
