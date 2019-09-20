@@ -3,6 +3,7 @@ extends Control
 onready var play = get_node("Menu/PlayButton")
 onready var quit = get_node("Menu/QuitButton")
 onready var fullscreenToggle = get_node("FullscreenToggle")
+var normalResolution = Vector2(1280,720)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +26,9 @@ func _quit():
 func _toggle_fullscreen():
 	OS.window_fullscreen = !OS.window_fullscreen
 	if OS.window_fullscreen:
-		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_EXPAND, OS.window_size)
-		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED,  SceneTree.STRETCH_ASPECT_EXPAND, OS.window_size)
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_EXPAND, normalResolution)
+		if (OS.get_screen_size().x > normalResolution.x):
+			get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED,  SceneTree.STRETCH_ASPECT_EXPAND, OS.get_screen_size())
 	else:
-		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_KEEP, Vector2(1280,720))
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D,  SceneTree.STRETCH_ASPECT_KEEP, normalResolution)
 	
