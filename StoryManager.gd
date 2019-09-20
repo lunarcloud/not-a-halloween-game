@@ -1,9 +1,12 @@
 extends Node
 
 onready var story = get_node("Story")
-onready var label = get_node("StoryText")
-onready var continueButton = get_node("ContinueButton")
-onready var choicesContainer = get_node("ChoicesContainer")
+onready var dialogBox = get_node("DialogBox")
+onready var music = get_node("MusicPlayer")
+onready var label = get_node("DialogBox/StoryText")
+onready var continueButton = get_node("DialogBox/ContinueButton")
+onready var choicesContainer = get_node("DialogBox/ChoicesContainer")
+onready var pretendExplorebutton = get_node("PretendExplore")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +21,8 @@ func _ready():
 	continueButton.grab_focus()
 	continueButton.connect("pressed", self, "_continue")
 	
+	pretendExplorebutton.connect("pressed", self, "_continue")
+	pretendExplorebutton.visible = false
 	
 	var index = 0
 	for choice in choicesContainer.get_children():
@@ -49,6 +54,12 @@ func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
 			play_music(tag.trim_prefix("music:"))
+		elif (tag == "hidedialog"):
+			dialogBox.visible = false
+			pretendExplorebutton.visible = true
+		elif (tag == "showdialog"):
+			dialogBox.visible = true
+			pretendExplorebutton.visible = false
 		else:
 			# TODO More tags, game specific tags
 			print("Unknown tag " + tag)
@@ -64,6 +75,8 @@ func _on_choices(currentChoices):
 		
 func play_music(song):
 	print("Playing music " + song)
+	music.stream = load("res://media/music/" + song + ".ogg")
+	music.play(0)
 	
 func _select_choice(index):
 	story.ChooseChoiceIndex(index)

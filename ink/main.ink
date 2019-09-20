@@ -9,6 +9,12 @@
 
 hello world! #aoeu
 
+#hidedialog
+
+... explore the world ...
+
+#showdialog
+
 This is an ink-powered story. #music:simple_song
 
 * Wait
