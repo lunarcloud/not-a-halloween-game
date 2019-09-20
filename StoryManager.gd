@@ -1,12 +1,12 @@
 extends Node
 
 onready var story = get_node("Story")
-onready var dialogBox = get_node("DialogBox")
 onready var music = get_node("MusicPlayer")
-onready var label = get_node("DialogBox/StoryText")
-onready var continueButton = get_node("DialogBox/ContinueButton")
-onready var choicesContainer = get_node("DialogBox/ChoicesContainer")
 onready var pretendExplorebutton = get_node("PretendExplore")
+onready var dialogBox = get_node("CanvasLayer/DialogBox")
+onready var label = get_node("CanvasLayer/DialogBox/StoryText")
+onready var continueButton = get_node("CanvasLayer/DialogBox/ContinueButton")
+onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
