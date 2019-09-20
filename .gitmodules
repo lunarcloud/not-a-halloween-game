@@ -1,0 +1,3 @@
+[submodule "godot-ink"]
+	path = godot-ink
+	url = https://github.com/paulloz/godot-ink.git
