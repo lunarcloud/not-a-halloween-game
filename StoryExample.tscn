@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://StoryManager.gd" type="Script" id=1]
+[ext_resource path="res://godot-ink/addons/paulloz.ink/Story.cs" type="Script" id=2]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="ButtonGroup" id=2]
+
+[node name="StoryExample" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Story" type="Node2D" parent="."]
+script = ExtResource( 2 )
+InkFilePath = ""
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 13.0
+margin_top = 444.0
+margin_right = 1283.0
+margin_bottom = 716.0
+color = Color( 0.203922, 0.0941176, 0.0705882, 1 )
+
+[node name="StoryText" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 473.0
+margin_right = 862.0
+margin_bottom = 688.0
+custom_fonts/font = SubResource( 3 )
+text = "story not loaded..."
+align = 1
+valign = 1
+
+[node name="ContinueButton" type="Button" parent="."]
+margin_left = 880.912
+margin_top = 620.408
+margin_right = 1220.91
+margin_bottom = 685.408
+custom_fonts/font = SubResource( 4 )
+text = "Continue"
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="."]
+margin_left = 888.663
+margin_top = 523.422
+margin_right = 1246.66
+margin_bottom = 703.422
+custom_constants/separation = 16
+
+[node name="Choice1" type="Button" parent="ChoicesContainer"]
+margin_right = 357.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 1"
+
+[node name="Choice2" type="Button" parent="ChoicesContainer"]
+margin_top = 45.0
+margin_right = 357.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 2"
+
+[node name="Choice3" type="Button" parent="ChoicesContainer"]
+margin_top = 90.0
+margin_right = 357.0
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 3"
+
+[node name="Choice4" type="Button" parent="ChoicesContainer"]
+margin_top = 135.0
+margin_right = 357.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 4"

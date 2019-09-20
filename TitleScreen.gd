@@ -16,7 +16,7 @@ func _ready():
 #	pass
 
 func _play():
-	get_tree().change_scene("res://BlankScene.tscn")
+	get_tree().change_scene("res://StoryExample.tscn")
 	
 func _quit():
 	get_tree().quit()

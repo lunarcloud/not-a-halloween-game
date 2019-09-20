@@ -4,7 +4,6 @@ onready var story = get_node("Story")
 onready var label = get_node("StoryText")
 onready var continueButton = get_node("ContinueButton")
 onready var choicesContainer = get_node("ChoicesContainer")
-var choiceIndex = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,10 +31,7 @@ func _ready():
 
 func _continue():
 	if (story.CanContinue || story.HasChoices):
-		if (story.HasChoices):
-			story.ChooseChoiceIndex(choiceIndex)
-		else:
-			story.Continue()
+		story.Continue()
 		if (!story.CanContinue && !story.HasChoices):
 			continueButton.set_text("End")
 	else:
@@ -43,7 +39,8 @@ func _continue():
 
 func _on_story_continued(currentText, currentTags):
 	label.set_text(currentText)
-	continueButton.disabled = false
+	continueButton.visible = true
+	choicesContainer.visible = false
 	for choice in choicesContainer.get_children():
 		choice.visible = false;
 	_process_tags(currentTags)
@@ -53,20 +50,21 @@ func _process_tags(tags):
 		if (tag.begins_with("music:")):
 			play_music(tag.trim_prefix("music:"))
 		else:
+			# TODO More tags, game specific tags
 			print("Unknown tag " + tag)
 
 func _on_choices(currentChoices):
 	var index = 0
+	continueButton.visible = false
+	choicesContainer.visible = true
 	for choice in currentChoices:
 		choicesContainer.get_child(index).visible = true
 		choicesContainer.get_child(index).set_text(choice)
 		index += 1
-		continueButton.disabled = true
 		
 func play_music(song):
 	print("Playing music " + song)
 	
 func _select_choice(index):
-	choiceIndex = index
-	continueButton.disabled = false
+	story.ChooseChoiceIndex(index)
 	
