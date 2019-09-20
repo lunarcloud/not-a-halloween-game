@@ -25,9 +25,20 @@ func _ready():
 func _on_story_continued(currentText, currentTags):
 	label.set_text(currentText)
 	continueButton.disabled = false
+	_process_tags(currentTags)
 	
+func _process_tags(tags):
+	for tag in tags:
+		if (tag.begins_with("music:")):
+			play_music(tag.trim_prefix("music:"))
+		else:
+			print("Unknown tag " + tag)
 
 func _on_choices(currentChoices):
 	for choice in currentChoices:
 		label.set_text(label.get_text() + "\n\t" + choice) 
+		# TODO make choice buttons
 		continueButton.disabled = true
+		
+func play_music(song):
+	print("Playing music " + song)
