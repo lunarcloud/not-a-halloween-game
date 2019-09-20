@@ -38,8 +38,8 @@ text = "pretend explore world..."
 [node name="DialogBox" type="ColorRect" parent="."]
 margin_left = 13.0
 margin_top = 444.0
-margin_right = 1283.0
-margin_bottom = 716.0
+margin_right = 1267.0
+margin_bottom = 708.0
 color = Color( 0.203922, 0.0941176, 0.0705882, 1 )
 
 [node name="StoryText" type="Label" parent="DialogBox"]
