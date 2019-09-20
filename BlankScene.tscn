@@ -7,4 +7,4 @@
 [node name="Story" type="Node2D" parent="."]
 script = ExtResource( 1 )
 AutoLoadStory = true
-InkFilePath = "ink/main.json"
+InkFilePath = "res://ink/main.json"

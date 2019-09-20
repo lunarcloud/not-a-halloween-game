@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="not-a-halloween-game"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://BlankScene.tscn"
 config/icon="res://icon.png"
 
 [rendering]
