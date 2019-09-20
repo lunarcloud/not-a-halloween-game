@@ -3,6 +3,8 @@ extends Node
 onready var story = get_node("Story")
 onready var label = get_node("StoryText")
 onready var continueButton = get_node("ContinueButton")
+onready var choicesContainer = get_node("ChoicesContainer")
+var choiceIndex = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,16 +17,35 @@ func _ready():
 	story.Continue()
 	
 	continueButton.grab_focus()
-	continueButton.connect("pressed", story, "Continue")	
+	continueButton.connect("pressed", self, "_continue")
+	
+	
+	var index = 0
+	for choice in choicesContainer.get_children():
+		choice.connect("pressed", self, "_select_choice", [index])
+		index += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func _continue():
+	if (story.CanContinue || story.HasChoices):
+		if (story.HasChoices):
+			story.ChooseChoiceIndex(choiceIndex)
+		else:
+			story.Continue()
+		if (!story.CanContinue && !story.HasChoices):
+			continueButton.set_text("End")
+	else:
+		get_tree().change_scene("res://TitleScreen.tscn")
+
 func _on_story_continued(currentText, currentTags):
 	label.set_text(currentText)
 	continueButton.disabled = false
+	for choice in choicesContainer.get_children():
+		choice.visible = false;
 	_process_tags(currentTags)
 	
 func _process_tags(tags):
@@ -35,10 +56,17 @@ func _process_tags(tags):
 			print("Unknown tag " + tag)
 
 func _on_choices(currentChoices):
+	var index = 0
 	for choice in currentChoices:
-		label.set_text(label.get_text() + "\n\t" + choice) 
-		# TODO make choice buttons
+		choicesContainer.get_child(index).visible = true
+		choicesContainer.get_child(index).set_text(choice)
+		index += 1
 		continueButton.disabled = true
 		
 func play_music(song):
 	print("Playing music " + song)
+	
+func _select_choice(index):
+	choiceIndex = index
+	continueButton.disabled = false
+	

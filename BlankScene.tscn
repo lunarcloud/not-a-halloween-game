@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://godot-ink/addons/paulloz.ink/Story.cs" type="Script" id=2]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="ButtonGroup" id=2]
 
 [node name="BlankScene" type="Node2D"]
 
@@ -22,8 +29,45 @@ align = 1
 valign = 1
 
 [node name="ContinueButton" type="Button" parent="StoryManager"]
-margin_left = 518.788
-margin_top = 590.557
-margin_right = 848.788
-margin_bottom = 715.557
+margin_left = 931.308
+margin_top = 580.735
+margin_right = 1261.31
+margin_bottom = 705.735
 text = "Continue"
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="StoryManager"]
+margin_left = 35.0
+margin_top = 528.0
+margin_right = 650.0
+margin_bottom = 716.0
+
+[node name="Choice1" type="CheckBox" parent="StoryManager/ChoicesContainer"]
+margin_right = 615.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 1"
+
+[node name="Choice2" type="CheckBox" parent="StoryManager/ChoicesContainer"]
+margin_top = 35.0
+margin_right = 615.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 2"
+
+[node name="Choice3" type="CheckBox" parent="StoryManager/ChoicesContainer"]
+margin_top = 70.0
+margin_right = 615.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 3"
+
+[node name="Choice4" type="CheckBox" parent="StoryManager/ChoicesContainer"]
+margin_top = 105.0
+margin_right = 615.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 1 )
+group = SubResource( 2 )
+text = "Choice 4"

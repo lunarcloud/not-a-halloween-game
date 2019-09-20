@@ -13,5 +13,8 @@ This is an ink-powered story. #music:simple_song
 
 * Wait
 * Choices [Here] have consequences
+-
 
-- -> END
+And now we're done.
+
+-> END
