@@ -28,9 +28,10 @@ func _ready():
 	var index = 0
 	for choice in choicesContainer.get_children():
 		choice.connect("button_up", self, "_select_choice", [index])
+		choice.visible = false
 		index += 1	
 	
-	if story.LoadStory("res://ink/main.json"):	
+	if story.LoadStory():	
 		story.LoadStateFromDisk("user://save.json")
 		var savedPosition = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
 		if savedPosition != Vector2(0,0):

@@ -49,9 +49,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="godot-ink\addons\paulloz.ink\PaullozDotInk.cs" />
-    <Compile Include="godot-ink\addons\paulloz.ink\InkDock.cs" />
-    <Compile Include="godot-ink\addons\paulloz.ink\Story.cs" />
+    <Compile Include="addons\paulloz.ink\PaullozDotInk.cs" />
+    <Compile Include="addons\paulloz.ink\InkDock.cs" />
+    <Compile Include="addons\paulloz.ink\InkStory.cs" />
     <Reference Include="Ink">
       <HintPath>$(ProjectDir)/ink-engine-runtime.dll</HintPath>
       <Private>False</Private>

@@ -1,0 +1,13 @@
+[remap]
+
+importer="ink"
+type="TextFile"
+path="res://.import/main.ink-14168e52f7c994f71797319ae0d75c0f.res"
+
+[deps]
+
+source_file="res://ink/main.ink"
+dest_files=[ "res://.import/main.ink-14168e52f7c994f71797319ae0d75c0f.res" ]
+
+[params]
+
