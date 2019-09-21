@@ -165,3 +165,7 @@ func _on_Player_interact_with(name):
 			index += 1
 		print("Couldn't find " + name + " in current choices")
 			
+
+
+func _increase():
+	pass # Replace with function body.

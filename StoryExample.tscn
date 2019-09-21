@@ -20,7 +20,7 @@
 render_priority = 1
 shader = ExtResource( 5 )
 shader_param/color = Vector3( 0.35, 0.48, 0.95 )
-shader_param/OCTAVES = 2
+shader_param/OCTAVES = 1
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 26.4076, 24.7487 )
@@ -210,6 +210,7 @@ text = "MENU"
 flat = true
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
+[connection signal="fog_worse" from="." to="." method="_increase"]
 [connection signal="play_music" from="." to="MusicPlayer" method="_play_music"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
 [connection signal="area_entered" from="GameMap/Fire1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]

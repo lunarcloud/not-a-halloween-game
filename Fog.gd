@@ -2,23 +2,27 @@ extends TextureRect
 
 onready var Mat = get_material()
 var initial_intensity = 1
+var current_intensity = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initial_intensity = Mat.get_shader_param("Octaves")
+	initial_intensity = Mat.get_shader_param("OCTAVES")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _clear(intensity):
-	Mat.set_shader_param("Octaves", 0)
+	_change(0)
 	
 func _reset(intensity):
-	Mat.set_shader_param("Octaves", initial_intensity)
+	_change(initial_intensity)
 
-func _increase(intensity):
-	Mat.set_shader_param("Octaves", Mat.get_shader_param("Octaves") + 1)
+func _increase():
+	_change(Mat.get_shader_param("OCTAVES") + 1)
 
 func _change(intensity):
-	Mat.set_shader_param("Octaves", intensity)
+	print("changing fog octave to " + str(intensity))
+	current_intensity = intensity
+	var Mat = get_material()
+	Mat.set_shader_param("OCTAVES", intensity)
