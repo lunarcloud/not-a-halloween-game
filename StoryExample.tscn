@@ -41,7 +41,6 @@ script = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialogBox" type="NinePatchRect" parent="CanvasLayer"]
-visible = false
 anchor_left = 0.1
 anchor_top = 1.0
 anchor_right = 0.9

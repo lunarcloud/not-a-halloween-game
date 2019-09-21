@@ -1,6 +1,6 @@
 
 
-== bob
+== totem2
 #showdialog
 hello
 

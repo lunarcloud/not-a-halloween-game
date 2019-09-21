@@ -35,6 +35,7 @@ func _ready():
 		var savedPosition = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
 		if savedPosition != Vector2(0,0):
 			player.position = savedPosition
+		dialogBox.visible = false
 		continueButton.set_text("Continue")
 		_continue()
 	else:
@@ -96,8 +97,9 @@ func _on_choices(currentChoices):
 	continueButton.visible = false
 	choicesContainer.visible = true
 	for choice in currentChoices:
-		choicesContainer.get_child(index).visible = true
-		choicesContainer.get_child(index).set_text(choice)
+		if index < 4:
+			choicesContainer.get_child(index).visible = true
+			choicesContainer.get_child(index).set_text(choice)
 		index += 1
 	choicesContainer.get_child(0).grab_focus()
 
