@@ -6,3 +6,7 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+
+export/linux/*
+export/windows/*
+export/macos/*
