@@ -5,6 +5,7 @@ INCLUDE bob.ink
 INCLUDE totem1.ink
 INCLUDE totem2.ink
 INCLUDE witch.ink
+INCLUDE fishmen.ink
 
 VAR PlayerX = 0
 VAR PlayerY = 0
@@ -24,21 +25,31 @@ Damn hooligans...
 #hidedialog
 Navigate around the world...
 + [jeremy] hi -> explore_map
-+ [fire1] -> fire1
-+ [fire2] -> fire2
-+ [bob] -> bob -> explore_map
-+ [totem1] -> totem1 -> explore_map
-+ [totem2] -> totem2 -> explore_map
-+ [witch] -> witch -> explore_map
+* [fire1] -> fire1
+* [fire2] -> fire2
++ [bob] -> bob
++ {not totem1.defeat} [totem1] -> totem1
++ {not totem2.defeat} [totem2] -> totem2
++ [witch] -> witch
++ {bob.save_again} [fishman1] -> fishman1
 -
 
 -> END
 
 = fire1
-There's that fire put out...
- -> explore_map
+There. That's the {explore_map.fire2: second} fire put out...
+-> post_fire
  
 = fire2
 Who would vandalize a graveyard like this?
-Someone is doing Halloween wrong. It's not until tomorrow, people!
- -> explore_map
+-> post_fire
+
+= post_fire
+#fog:worse
+{
+    - fire1 and fire2: 
+        Someone is doing Halloween wrong. It's not until tomorrow, people! 
+        -> bob.chase 
+    - else: 
+        -> explore_map 
+}
