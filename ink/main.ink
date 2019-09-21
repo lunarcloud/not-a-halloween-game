@@ -1,26 +1,22 @@
 /*
     Main Project File
 */
-// INCLUDE other.ink
+INCLUDE bob.ink
 
--> start
+VAR PlayerX = 0
+VAR PlayerY = 0
 
-== start
+-> explore_map
 
-hello world! #aoeu
-
+== explore_map
+#music:explore
 #hidedialog
-
-... explore the world ...
-
-#showdialog
-
-This is an ink-powered story. #music:simple_song
-
-* Wait
-* Choices [Here] have consequences
+Navigate around the world...
++ [bob] -> bob -> explore_map
++ [totem1]
++ [totem2]
++ [witch] 
 -
 
-And now we're done.
 
 -> END
