@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://godot-ink/addons/paulloz.ink/Story.cs" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://tiles/mapTiles.tres" type="TileSet" id=7]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bob/Bob.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -150,3 +151,8 @@ tile_data = PoolIntArray( -65501, 536870975, 0, 0, 19, 0, 34, 536870975, 0, 36, 
 
 [node name="Player" parent="GameMap" instance=ExtResource( 8 )]
 position = Vector2( 472.483, 292.731 )
+
+[node name="Bob" parent="GameMap" instance=ExtResource( 9 )]
+position = Vector2( 246.998, 357.427 )
+
+[editable path="GameMap/Bob"]

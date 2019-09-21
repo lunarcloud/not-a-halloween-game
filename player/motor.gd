@@ -18,3 +18,5 @@ func _physics_process(delta):
 func set_motion(x, y):
 	direction = Vector2(x, y)
 
+func set_speed(amount):
+	speed = amount

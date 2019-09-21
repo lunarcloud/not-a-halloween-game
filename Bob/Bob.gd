@@ -11,11 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _input(event):
-	if event.is_action_pressed("action"):
-		print("You pressed the action button, motha fugga!")
 
 
 func _on_Area2D_area_entered(area):
-	if area.get_name() == "Bob":
-		print("You met Bob.")
+	print("Bob has touched " + area.get_parent().get_name())
