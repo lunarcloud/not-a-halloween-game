@@ -23,7 +23,7 @@ Bob: Loretta's a witch. I'm not just being rude, mind you. She's actually practi
 Bob: So, Loretta apparently has quite a beef with the town. 
 Bob: It's taken her a long time to do it, but she has these totems all over town. #bob:show_totem
 Bob: I've found this one, but those fireballs did a number on me. #bob:destroy_totem
-Bob: Please, I need you to find and destroy the others... or the fish... #bob_rest
+Bob: Please, I need you to find and destroy the others... or the fish... #bob:rest
 
 -> explore_map
 

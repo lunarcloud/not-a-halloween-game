@@ -87,6 +87,51 @@ func _process_tags(tags):
 			emit_signal("fog_worse")
 		elif (tag == "fog:clear"):
 			emit_signal("fog_clear")
+		elif (tag == "bob:run_from_witch"):
+			#emit_signal("bob_run_from_witch") # TODO
+			pass
+		elif (tag == "witch:enter_attacking_bob"):
+			#emit_signal("witch_enter_attacking_bob") # TODO
+			pass
+		elif (tag == "witch:throw_fireball"):
+			#emit_signal("witch_throw_fireball") # TODO
+			pass
+		elif (tag == "bob:show_totem"):
+			#emit_signal("bob_show_totem") # TODO
+			pass
+		elif (tag == "bob:destroy_totem"):
+			#emit_signal("bob_destroy_totem") # TODO
+			pass
+		elif (tag == "bob:rest"):
+			#emit_signal("bob_rest") # TODO
+			pass
+		elif (tag == "defeat:totem1"):
+			#emit_signal("defeat_totem1") # TODO
+			pass
+		elif (tag == "defeat:totem2"):
+			#emit_signal("defeat_totem2") # TODO
+			pass
+		elif (tag == "witch:enter_laughing"):
+			#emit_signal("witch_enter_laughing") # TODO
+			pass
+		elif (tag == "stab_bob"):
+			#emit_signal("stab_bob") # TODO
+			pass
+		elif (tag == "lightning"):
+			#emit_signal("lightning") # TODO
+			pass
+		elif (tag == "fadetoblack"):
+			#emit_signal("fadetoblack") # TODO
+			pass
+		elif (tag == "fishmen:enter_from_sea"):
+			#emit_signal("fishmen_enter_from_sea") # TODO
+			pass
+		elif (tag == "cutscene:destroy_hotel"):
+			#emit_signal("cutscene_destroy_hotel") # TODO
+			pass
+		elif (tag == "cutscene:destroy_town"):
+			#emit_signal("cutscene_destroy_hotel") # TODO
+			pass
 		elif (tag == "hidedialog"):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
