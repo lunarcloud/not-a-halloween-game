@@ -6,17 +6,17 @@
 [ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://font/aileron/Aileron-Light.otf" type="DynamicFontData" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 3
 outline_color = Color( 0.403922, 0.101961, 0.101961, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Button
 
 # Declare member variables here. Examples:
@@ -32,19 +32,19 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="InputEventKey" id=5]
+[sub_resource type="InputEventKey" id=4]
 control = true
 command = true
 scancode = 81
 
-[sub_resource type="ShortCut" id=6]
-shortcut = SubResource( 5 )
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 20
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 3 )
 
@@ -75,12 +75,12 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
-margin_top = 128.0
+margin_top = 127.0
 margin_right = 848.0
-margin_bottom = 206.0
+margin_bottom = 205.0
 size_flags_horizontal = 15
 size_flags_vertical = 13
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Not a Haloween Game*"
 align = 1
 valign = 3
@@ -88,22 +88,22 @@ autowrap = true
 
 [node name="PlayButton" type="Button" parent="Menu"]
 margin_left = 366.0
-margin_top = 246.0
+margin_top = 245.0
 margin_right = 481.0
-margin_bottom = 311.0
+margin_bottom = 310.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Play"
-script = SubResource( 4 )
+script = SubResource( 3 )
 
 [node name="QuitButton" type="Button" parent="Menu"]
 margin_left = 367.0
-margin_top = 351.0
+margin_top = 350.0
 margin_right = 481.0
-margin_bottom = 416.0
+margin_bottom = 415.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 3 )
-shortcut = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 5 )
 text = "Quit"
 
 [node name="Version" type="Label" parent="."]
@@ -114,7 +114,7 @@ margin_left = 5.0
 margin_top = -70.5599
 margin_right = 0.289734
 margin_bottom = -7.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "Version 0.0.1
 © 2019 Sam & Zach Sarette"
 
@@ -129,6 +129,6 @@ margin_right = -5.0
 margin_bottom = -7.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "Fullscreen"
 align = 2

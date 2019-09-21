@@ -10,24 +10,24 @@ onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	story.LoadStory("ink/main.json")
-	label.set_text("loading story...")
-	print("loading story...")
-	
+	continueButton.connect("pressed", self, "_continue")
+	pretendExplorebutton.connect("pressed", self, "_continue")
 	story.connect("InkContinued", self, "_on_story_continued")
 	story.connect("InkChoices", self, "_on_choices")
-	story.Continue()
 	
-	continueButton.grab_focus()
-	continueButton.connect("pressed", self, "_continue")
-	
-	pretendExplorebutton.connect("pressed", self, "_continue")
 	pretendExplorebutton.visible = false
+	continueButton.grab_focus()
 	
 	var index = 0
 	for choice in choicesContainer.get_children():
 		choice.connect("pressed", self, "_select_choice", [index])
-		index += 1
+		index += 1	
+	
+	if story.LoadStory("res://ink/main.json"):
+		continueButton.set_text("Continue")
+		story.Continue()
+	else:
+		print("Story could not be loaded!")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
