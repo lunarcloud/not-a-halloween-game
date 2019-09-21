@@ -1,6 +1,7 @@
 extends Control
 
 onready var play = get_node("Menu/PlayButton")
+onready var reset = get_node("Menu/ResetButton")
 onready var quit = get_node("Menu/QuitButton")
 onready var fullscreenToggle = get_node("FullscreenToggle")
 var normalResolution = Vector2(1280,720)
@@ -9,7 +10,19 @@ var normalResolution = Vector2(1280,720)
 func _ready():
 	play.grab_focus()
 	play.connect("pressed", self, "_play")
+	reset.connect("pressed", self, "_reset")
 	quit.connect("pressed", self, "_quit")
+	
+	var dir = Directory.new()
+	# if dir.file_exists("user://save.json"): # TODO add when pull-request merges
+	if dir.file_exists("res://save.json"):
+		reset.visible = true
+		play.set_text("Continue")
+	else:
+		reset.visible = false
+		play.set_text("New Game")
+		
+	
 	fullscreenToggle.pressed = OS.window_fullscreen
 	fullscreenToggle.connect("pressed", self, "_toggle_fullscreen")
 
@@ -19,6 +32,12 @@ func _ready():
 
 func _play():
 	get_tree().change_scene("res://StoryExample.tscn")
+	
+func _reset():
+	var dir = Directory.new()
+	# dir.remove("user://save.json") # TODO add when pull-request merges
+	dir.remove("res://save.json")
+	_play()
 	
 func _quit():
 	get_tree().quit()

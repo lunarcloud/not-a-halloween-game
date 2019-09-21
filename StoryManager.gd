@@ -23,9 +23,12 @@ func _ready():
 		choice.connect("pressed", self, "_select_choice", [index])
 		index += 1	
 	
-	if story.LoadStory("res://ink/main.json"):
+	if story.LoadStory("res://ink/main.json"): # TODO remove when above added
+	
+		# story.LoadStateFromDisk("user://save.json") # TODO add when pull-request merges
+		story.LoadStateFromDisk("save.json")
 		continueButton.set_text("Continue")
-		story.Continue()
+		_continue()
 	else:
 		print("Story could not be loaded!")
 
@@ -45,6 +48,11 @@ func _continue():
 		if (!story.CanContinue && !story.HasChoices):
 			continueButton.set_text("End")
 	else:
+		#delete save file
+		var dir = Directory.new()
+		# dir.remove("user://save.json") # TODO add when pull-request merges
+		dir.remove("res://save.json")
+		#load menu
 		get_tree().change_scene("res://TitleScreen.tscn")
 
 func _on_story_continued(currentText, currentTags):
