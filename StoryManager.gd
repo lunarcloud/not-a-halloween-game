@@ -1,12 +1,14 @@
 extends Node
 
 onready var story = get_node("Story")
-onready var music = get_node("MusicPlayer")
+
 onready var pretendExplorebutton = get_node("CanvasLayer/PretendExplore")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
 onready var label = get_node("CanvasLayer/DialogBox/StoryText")
 onready var continueButton = get_node("CanvasLayer/DialogBox/ContinueButton")
 onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer")
+
+signal play_music(name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,7 +68,7 @@ func _on_story_continued(currentText, currentTags):
 func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
-			play_music(tag.trim_prefix("music:"))
+			emit_signal("play_music", tag.trim_prefix("music:"))
 		elif (tag == "hidedialog"):
 			dialogBox.visible = false
 			pretendExplorebutton.visible = true
@@ -86,10 +88,6 @@ func _on_choices(currentChoices):
 		choicesContainer.get_child(index).set_text(choice)
 		index += 1
 		
-func play_music(song):
-	print("Playing music " + song)
-	music.stream = load("res://media/music/" + song + ".ogg")
-	music.play(0)
 	
 func _select_choice(index):
 	story.ChooseChoiceIndex(index)
