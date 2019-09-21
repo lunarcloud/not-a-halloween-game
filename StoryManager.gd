@@ -46,9 +46,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _quit_to_menu():
+	get_tree().change_scene("res://TitleScreen.tscn")
+
 func _input(event):
 	if event.is_action_pressed("menu"):
-		get_tree().change_scene("res://TitleScreen.tscn")
+		_quit_to_menu()
 		
 
 func _save_state():
@@ -69,7 +72,7 @@ func _continue():
 		var dir = Directory.new()
 		dir.remove("user://save.json")
 		#load menu
-		get_tree().change_scene("res://TitleScreen.tscn")
+		_quit_to_menu()
 
 func _on_story_continued(currentText, currentTags):
 	label.set_text(currentText)
