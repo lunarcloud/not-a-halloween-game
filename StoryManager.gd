@@ -7,17 +7,12 @@ onready var label = get_node("CanvasLayer/DialogBox/StoryText")
 onready var continueButton = get_node("CanvasLayer/DialogBox/ContinueButton")
 onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer")
 
-# Must be in same index order as in the ink file
-var interactables = ["Bob", "Totem1", "Totem2", "Witch"]
-
-enum Interactor {
-	Bob = 0,
-	Totem1 = 1,
-	Totem2 = 2,
-	Witch = 3
-}
+# Must be in same index numbers as ordered in the ink file
+var choices = PoolStringArray()
 
 signal play_music(name)
+signal fog_worse
+signal fog_clear
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,13 +76,17 @@ func _on_story_continued(currentText, currentTags):
 	continueButton.grab_focus()
 	choicesContainer.visible = false
 	for choice in choicesContainer.get_children():
-		choice.visible = false;
+		choice.visible = false
 	_process_tags(currentTags)
 	
 func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
 			emit_signal("play_music", tag.trim_prefix("music:"))
+		elif (tag == "fog:worse"):
+			emit_signal("fog_worse")
+		elif (tag == "fog:clear"):
+			emit_signal("fog_clear")
 		elif (tag == "hidedialog"):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
@@ -97,6 +96,7 @@ func _process_tags(tags):
 			print("Unknown tag " + tag)
 
 func _on_choices(currentChoices):
+	choices = currentChoices
 	var index = 0
 	continueButton.visible = false
 	choicesContainer.visible = true
@@ -112,7 +112,12 @@ func _select_choice(index):
 	
 func _on_Player_interact_with(name):
 	if dialogBox.visible == false:
-		if Interactor.has(name):
-			story.ChooseChoiceIndex(Interactor.get(name))
-		else:
-			print("No such interactable: " + name)
+		var index = 0
+		for choice in choices:
+			if choice == name:
+				story.ChooseChoiceIndex(index)
+				story.Continue()
+				return
+			index += 1
+		print("Couldn't find " + name + " in current choices")
+			

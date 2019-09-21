@@ -24,16 +24,16 @@ Damn hooligans...
 #music:explore
 #hidedialog
 Navigate around the world...
-+ [jared] 
++ [Jared] 
     {fire1 and fire2: {~Thanks for taking care of those fires.|What's up? Oh, the brink of destruction you say? Crazy.} | Hey, the graveyard is still burning guy...}
     -> explore_map
-* [fire1] -> fire1
-* [fire2] -> fire2
-+ [bob] -> bob
-+ {not totem1.defeat} [totem1] -> totem1
-+ {not totem2.defeat} [totem2] -> totem2
-+ [witch] -> witch
-+ {bob.save_again} [fishman1] -> fishman1
+* [Fire1] -> fire1
+* [Fire2] -> fire2
++ [Bob] -> bob
++ {not totem1.defeat} [Totem1] -> totem1
++ {not totem2.defeat} [Totem2] -> totem2
++ [Witch] -> witch
++ {bob.save_again} [Fishman1] -> fishman1
 -
 
 -> END
