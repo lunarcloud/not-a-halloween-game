@@ -39,10 +39,12 @@ Navigate around the world...
 -> END
 
 = fire1
+#showdialog
 There. That's the {explore_map.fire2: second} fire put out...
 -> post_fire
  
 = fire2
+#showdialog
 Who would vandalize a graveyard like this?
 -> post_fire
 

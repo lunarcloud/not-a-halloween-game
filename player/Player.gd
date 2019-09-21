@@ -16,6 +16,7 @@ func _input(event):
 	if event.is_action_released("action"):
 		print("Triggering " + touchingName)
 		emit_signal("interact_with", touchingName)
+		touchingName = ""
 
 
 func _on_Area2D_area_entered(area):

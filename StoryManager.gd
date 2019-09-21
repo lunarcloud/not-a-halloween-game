@@ -116,7 +116,6 @@ func _on_Player_interact_with(name):
 		for choice in choices:
 			if choice == name:
 				story.ChooseChoiceIndex(index)
-				story.Continue()
 				return
 			index += 1
 		print("Couldn't find " + name + " in current choices")
