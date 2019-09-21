@@ -34,7 +34,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _save_state():
+	# story.SaveStateOnDisk("user://save.json") # TODO add when pull-request merges
+	story.SaveStateOnDisk("save.json")
+
 func _continue():
+	_save_state()
 	if (story.CanContinue || story.HasChoices):
 		story.Continue()
 		if (!story.CanContinue && !story.HasChoices):
@@ -80,4 +85,6 @@ func play_music(song):
 	
 func _select_choice(index):
 	story.ChooseChoiceIndex(index)
+	
+
 	

@@ -7,6 +7,8 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 
-export/linux/*
-export/windows/*
-export/macos/*
+#export folders
+export/
+
+#save files
+save.json
