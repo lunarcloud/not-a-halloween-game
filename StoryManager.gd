@@ -30,10 +30,8 @@ func _ready():
 		choice.connect("button_up", self, "_select_choice", [index])
 		index += 1	
 	
-	if story.LoadStory("res://ink/main.json"): # TODO remove when above added
-	
-		# story.LoadStateFromDisk("user://save.json") # TODO add when pull-request merges
-		story.LoadStateFromDisk("save.json")
+	if story.LoadStory("res://ink/main.json"):	
+		story.LoadStateFromDisk("user://save.json")
 		var savedPosition = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
 		if savedPosition != Vector2(0,0):
 			player.position = savedPosition
@@ -55,8 +53,7 @@ func _input(event):
 func _save_state():
 	story.SetVariable("PlayerX", player.position.x)
 	story.SetVariable("PlayerY", player.position.y)
-	# story.SaveStateOnDisk("user://save.json") # TODO add when pull-request merges
-	story.SaveStateOnDisk("save.json")
+	story.SaveStateOnDisk("user://save.json")
 
 func _exit_tree():
 	_save_state()
@@ -69,8 +66,7 @@ func _continue():
 	else:
 		#delete save file
 		var dir = Directory.new()
-		# dir.remove("user://save.json") # TODO add when pull-request merges
-		dir.remove("res://save.json")
+		dir.remove("user://save.json")
 		#load menu
 		get_tree().change_scene("res://TitleScreen.tscn")
 

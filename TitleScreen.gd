@@ -14,8 +14,7 @@ func _ready():
 	quit.connect("pressed", self, "_quit")
 	
 	var dir = Directory.new()
-	# if dir.file_exists("user://save.json"): # TODO add when pull-request merges
-	if dir.file_exists("res://save.json"):
+	if dir.file_exists("user://save.json"):
 		reset.visible = true
 		play.set_text("Continue")
 	else:
@@ -35,8 +34,7 @@ func _play():
 	
 func _reset():
 	var dir = Directory.new()
-	# dir.remove("user://save.json") # TODO add when pull-request merges
-	dir.remove("res://save.json")
+	dir.remove("user://save.json")
 	_play()
 	
 func _quit():
