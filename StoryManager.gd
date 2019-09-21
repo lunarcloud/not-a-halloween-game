@@ -115,7 +115,7 @@ func _process_tags(tags):
 			#emit_signal("witch_enter_laughing") # TODO
 			pass
 		elif (tag == "stab_bob"):
-			#emit_signal("stab_bob") # TODO
+				#emit_signal("stab_bob") # TODO
 			pass
 		elif (tag == "lightning"):
 			#emit_signal("lightning") # TODO

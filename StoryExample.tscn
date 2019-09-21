@@ -20,7 +20,7 @@
 render_priority = 1
 shader = ExtResource( 5 )
 shader_param/color = Vector3( 0.35, 0.48, 0.95 )
-shader_param/OCTAVES = 1
+shader_param/OCTAVES = 2
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 26.4076, 24.7487 )
