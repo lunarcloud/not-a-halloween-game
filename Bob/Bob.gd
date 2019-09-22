@@ -27,6 +27,10 @@ func _on_StoryExample_bob_rest():
 	pass # Replace with function body.
 
 
+func _on_StoryExample_bob_to_beach():
+	pass # Replace with function body.
+
+
 func _on_StoryExample_stab_bob():
 	pass # Replace with function body.
 
@@ -41,3 +45,4 @@ func _on_StoryExample_bob_show_totem():
 
 func _on_StoryExample_camera_bob():
 	camera._set_current(true)
+
