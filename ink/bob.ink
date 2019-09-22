@@ -38,7 +38,7 @@ Bob: But... So... there's a coice you need to make.
 Bob: I'm the last totem. There was a clause in my rental agreement that allowed her to curse me as one of her totems.
 Bob: Always read the fine print, man.
 Bob: Anyway, you gotta kill me to break the spell that's still brewing.
-Bob: I'll be down by the southern beach.
+Bob: I'll be down by the southern beach. #bob:to_beach
 
 -> explore_map
 
