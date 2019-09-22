@@ -358,7 +358,7 @@ position = Vector2( -4.12088, 1.86963 )
 shape = SubResource( 3 )
 
 [node name="TotemExample" type="Sprite" parent="GameMap"]
-position = Vector2( 1658.69, 576.944 )
+position = Vector2( 1661.07, 567.808 )
 texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 6, 197, 20, 20 )

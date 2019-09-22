@@ -198,6 +198,8 @@ func _select_choice(index):
 	story.ChooseChoiceIndex(index)
 	
 func _on_Player_interact_with(name):
+	if name.begins_with("Fishman"):
+		name = "Fishman1"
 	if dialogBox.visible == false:
 		var index = 0
 		for choice in choices:

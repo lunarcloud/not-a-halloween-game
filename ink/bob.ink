@@ -23,10 +23,10 @@ What was all that about? Is that the cranky old lady who yells a lot at town hal
 Bob: Yeah... she's my landlord. It's been awful since I moved here.
 Bob: Loretta's a witch. I'm not just being rude, mind you. She's actually practicing some horrible ritual.
 Bob: So, Loretta apparently has quite a beef with the town. 
-Bob: It's taken her a long time to do it, but she has these totems all over town. #bob:show_totem
-Bob: I've found this one, but those fireballs did a number on me. #bob:destroy_totem
-Bob: Please, I need you to find and destroy the others... or the fish... #bob:rest
-#camera:player
+Bob: It's taken her a long time to do it, but she has these totems all over town.
+Bob: I've found this one, but those fireballs did a number on me. #bob:show_totem
+Bob: Please, I need you to find and destroy the others... or the fish... #bob:destroy_totem
+Wow, guess I'll get totem-destroying! #bob:rest #camera:player
 -> explore_map
 
 = last_totem
