@@ -24,6 +24,7 @@ signal bob_show_totem
 signal bob_destroy_totem
 signal bob_rest
 signal bob_to_beach
+signal bob_to_totem
 signal defeat_totem1
 signal defeat_totem2
 signal witch_enter_laughing
@@ -132,6 +133,8 @@ func _process_tags(tags):
 			emit_signal("bob_rest")
 		elif (tag == "bob:to_beach"):
 			emit_signal("bob_to_beach")
+		elif (tag == "bob:to_totem"):
+			emit_signal("bob_to_totem")
 		elif (tag == "defeat:totem1"):
 			emit_signal("defeat_totem1")
 		elif (tag == "defeat:totem2"):

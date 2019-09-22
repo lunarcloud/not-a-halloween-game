@@ -32,7 +32,6 @@ Bob: Please, I need you to find and destroy the others... or the fish... #bob:re
 = last_totem
 #showdialog
 #bob:to_totem
-TODO
 Bob: Incredible! You've only got one more totem to defeat!
 Bob: If only you didn't have to destroy them all, but once the spell gets started, it's gotta be stopped completely.
 Bob: But... So... there's a coice you need to make.
