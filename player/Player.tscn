@@ -12,6 +12,8 @@ extents = Vector2( 32, 32 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+walkSpeed = 160
+runSpeed = 240
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2.09061 )
@@ -24,7 +26,6 @@ region_rect = Rect2( 292.94, 1.16858, 21.8421, 31.2285 )
 
 [node name="motor" type="Node" parent="."]
 script = ExtResource( 3 )
-speed = 150
 
 [node name="controller" type="Node" parent="motor"]
 script = ExtResource( 4 )

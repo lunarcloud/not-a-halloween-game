@@ -25,9 +25,9 @@ shader_param/color = Vector3( 0.35, 0.48, 0.95 )
 shader_param/OCTAVES = 1
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 26.4076, 24.7487 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 26.4076, 24.7487 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
@@ -65,6 +65,7 @@ script = ExtResource( 4 )
 [node name="GameMap" type="Node2D" parent="."]
 
 [node name="MapCanvas" type="CanvasLayer" parent="GameMap"]
+editor/display_folded = true
 
 [node name="Lightning" type="ColorRect" parent="GameMap/MapCanvas"]
 editor/display_folded = true
@@ -105,10 +106,157 @@ tile_data = PoolIntArray( -65501, 536870975, 0, 0, 19, 0, 34, 536870975, 0, 36, 
 
 [node name="Player" parent="GameMap" instance=ExtResource( 11 )]
 position = Vector2( 472.483, 292.731 )
+runSpeed = 320
 
 [node name="Bob" parent="GameMap" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 246.998, 357.427 )
+
+[node name="Witch" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 1634.5, 545.718 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Witch"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Witch"]
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 164, 193, 22, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Witch"]
+position = Vector2( 3.86954, -1.10547 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Witch/Area2D"]
+position = Vector2( -4.0657, 5.0795 )
+shape = SubResource( 3 )
+
+[node name="Fishman1" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 599.053, 1437.84 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman1"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman1"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman1"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman1/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
+
+[node name="Fishman2" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 507.149, 1432.61 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman2"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman2"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman2"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman2/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
+
+[node name="Fishman3" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 771.299, 1421.41 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman3"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman3"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman3"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman3/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
+
+[node name="Fishman4" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 928.544, 1415.47 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman4"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman4"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman4"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman4/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
+
+[node name="Fishman5" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 1031.43, 1422.69 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman5"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman5"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman5"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman5/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
+
+[node name="Fishman6" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
+position = Vector2( 396.067, 1443.45 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman6"]
+position = Vector2( 0, 6.62 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GameMap/Fishman6"]
+position = Vector2( -0.487793, -0.487793 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 37, 194, 19, 31 )
+
+[node name="Area2D" type="Area2D" parent="GameMap/Fishman6"]
+position = Vector2( 0.94339, 6.20972 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman6/Area2D"]
+position = Vector2( -0.652, -0.284941 )
+shape = SubResource( 3 )
 
 [node name="Fire1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -120,7 +268,7 @@ region_rect = Rect2( 230, 193, 26, 34 )
 [node name="Area2D" type="Area2D" parent="GameMap/Fire1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire1/Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Fire2" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -134,7 +282,7 @@ position = Vector2( 6.10352e-05, 0.970581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire2/Area2D"]
 position = Vector2( 0.323425, 0.323486 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -147,8 +295,8 @@ region_rect = Rect2( 6, 197, 20, 20 )
 position = Vector2( -2.78052, 0.794434 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Totem1/Area2D"]
-position = Vector2( 3.61401, -0.105957 )
-shape = SubResource( 2 )
+position = Vector2( 3.61401, -0.736206 )
+shape = SubResource( 3 )
 
 [node name="Totem2" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -162,27 +310,7 @@ position = Vector2( 3.86954, -1.10547 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Totem2/Area2D"]
 position = Vector2( -4.12088, 1.86963 )
-shape = SubResource( 2 )
-
-[node name="Witch" type="KinematicBody2D" parent="GameMap"]
-editor/display_folded = true
-position = Vector2( 1634.5, 545.718 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Witch"]
-position = Vector2( 0, 6.62 )
 shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="GameMap/Witch"]
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( 164, 193, 22, 31 )
-
-[node name="Area2D" type="Area2D" parent="GameMap/Witch"]
-position = Vector2( 3.86954, -1.10547 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Witch/Area2D"]
-position = Vector2( -4.0657, 5.0795 )
-shape = SubResource( 2 )
 
 [node name="Jared" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -196,7 +324,28 @@ position = Vector2( 3.86954, -1.10547 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Jared/Area2D"]
 position = Vector2( -6.56241, 5.32016 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="Locations" type="Node" parent="GameMap"]
+editor/display_folded = true
+
+[node name="BobPos1" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 540, 1220 )
+
+[node name="WitchPos1" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 850.945, 1214.85 )
+
+[node name="BobPos2Totem1" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 165.63, 1337.86 )
+
+[node name="BobPos2Totem2" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 119.588, 353.977 )
+
+[node name="BobPos3" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 687.754, 1355.99 )
+
+[node name="WitchPos2" type="Node2D" parent="GameMap/Locations"]
+position = Vector2( 823.509, 1301.45 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -302,7 +451,6 @@ flat = true
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
-[connection signal="fog_worse" from="." to="." method="_increase"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
 [connection signal="lightning" from="." to="GameMap/MapCanvas/Lightning" method="_flash"]
 [connection signal="play_music" from="." to="MusicPlayer" method="_play_music"]
@@ -312,6 +460,20 @@ flat = true
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
 [connection signal="area_exited" from="GameMap/Bob/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman1/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman2/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman3/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman3/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman4/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman4/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman5/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman5/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="GameMap/Fishman6/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="GameMap/Fishman6/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fire1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Fire1/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fire2/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
@@ -320,8 +482,6 @@ flat = true
 [connection signal="area_exited" from="GameMap/Totem1/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
-[connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_quit_to_menu"]

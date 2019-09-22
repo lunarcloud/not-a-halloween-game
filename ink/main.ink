@@ -23,6 +23,7 @@ Damn hooligans...
 == explore_map
 #music:explore
 #hidedialog
+#safe_to_save
 Navigate around the world...
 + [Jared]
     #showdialog

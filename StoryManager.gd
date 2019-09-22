@@ -42,14 +42,15 @@ func _ready():
 		choice.visible = false
 		index += 1	
 	
-	if story.LoadStory():	
-		story.LoadStateFromDisk("user://save.json")
-		var savedPosition = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
-		if savedPosition != Vector2(0,0):
-			player.position = savedPosition
+	if story.LoadStory():
 		dialogBox.visible = false
 		continueButton.set_text("Continue")
-		_continue()
+		if story.LoadStateFromDisk("user://save.json"):
+			print("loaded story")
+			player.position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
+		else:
+			print("new story")
+		story.Continue()
 	else:
 		print("Story could not be loaded!")
 
@@ -66,16 +67,8 @@ func _input(event):
 		_quit_to_menu()
 		
 
-func _save_state():
-	story.SetVariable("PlayerX", player.position.x)
-	story.SetVariable("PlayerY", player.position.y)
-	story.SaveStateOnDisk("user://save.json")
-
-func _exit_tree():
-	_save_state()
-
 func _continue():
-	if (story.CanContinue || story.HasChoices):
+	if (story.CanContinue):
 		story.Continue()
 		if (!story.CanContinue && !story.HasChoices):
 			continueButton.set_text("End")
@@ -139,6 +132,11 @@ func _process_tags(tags):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
 			dialogBox.visible = true
+		elif (tag == "safe_to_save"):
+			print("saved story")
+			story.SetVariable("PlayerX", player.position.x)
+			story.SetVariable("PlayerY", player.position.y)
+			story.SaveStateOnDisk("user://save.json")
 		else:
 			print("Unknown tag " + tag)
 
