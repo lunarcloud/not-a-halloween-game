@@ -31,7 +31,8 @@ Bob: Please, I need you to find and destroy the others... or the fish... #bob:re
 
 = last_totem
 #showdialog
-
+#bob:to_totem
+TODO
 Bob: Incredible! You've only got one more totem to defeat!
 Bob: If only you didn't have to destroy them all, but once the spell gets started, it's gotta be stopped completely.
 Bob: But... So... there's a coice you need to make.
@@ -66,8 +67,8 @@ Sad End.
 -> END
 
 = save_again
-Bob: What? But the spell, the summoning!? The fish people are coming! #lightning
-(fishmen cutscene) #hidedialog #fishmen:enter_from_sea #contshowdialog:3
+Bob: What? But the spell, the summoning!? The fish people are coming!
+(fishmen cutscene) #hidedialog #lightning #fishmen:enter_from_sea #contshowdialog:3
 Witch: Yes! Come out of the sea! Take over their homes! Destroy!!
 Bob: What... what have you done?
 Witch: What are they doing? What have you done?

@@ -29,7 +29,8 @@ Bob: You don't mind if I crash on your couch for a while?
     And the town is safe.
     (Good End)
 + Wow, I don't really have a big apartment... 
-    Don't be a jerk, player -> freindly_consequence
+    Don't be a jerk, player 
+    -> freindly_consequence
     -
 - -> END
 

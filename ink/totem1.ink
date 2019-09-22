@@ -27,7 +27,7 @@ Susan and Terence are dead on the ground. They are naked and wet, but there are 
 * Struck by lightning -> wrong
 * Poisoned -> wrong
 * Drowned -> wrong
-+ They aren’t human
++ They're fish
 -
 {{~Great job!|Very good.|Not much of a challenge}|You knew that one.}
 
