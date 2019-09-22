@@ -24,14 +24,6 @@ func _on_StoryExample_witch_throw_fireball():
 	pass # Replace with function body.
 
 
-func _on_StoryExample_bob_show_totem():
-	pass # Replace with function body.
-
-
-func _on_StoryExample_bob_destroy_totem():
-	pass # Replace with function body.
-
-
 func _on_StoryExample_bob_rest():
 	pass # Replace with function body.
 

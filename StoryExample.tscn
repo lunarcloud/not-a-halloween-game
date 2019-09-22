@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -18,10 +18,11 @@
 [ext_resource path="res://Fire.gd" type="Script" id=16]
 [ext_resource path="res://Fireball.gd" type="Script" id=17]
 [ext_resource path="res://Totem.gd" type="Script" id=18]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=19]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=20]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=21]
-[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=22]
+[ext_resource path="res://TotemExample.gd" type="Script" id=19]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=20]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=21]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=22]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=23]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -36,22 +37,22 @@ extents = Vector2( 26.4076, 24.7487 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 20 )
+font_data = ExtResource( 21 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 18
-font_data = ExtResource( 20 )
+font_data = ExtResource( 21 )
 
 [sub_resource type="ButtonGroup" id=6]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
-font_data = ExtResource( 21 )
+font_data = ExtResource( 22 )
 
 [sub_resource type="DynamicFont" id=8]
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 22 )
+font_data = ExtResource( 23 )
 
 [node name="StoryExample" type="Control"]
 anchor_right = 1.0
@@ -345,6 +346,13 @@ position = Vector2( 3.86954, -1.10547 )
 position = Vector2( -4.12088, 1.86963 )
 shape = SubResource( 3 )
 
+[node name="TotemExample" type="Sprite" parent="GameMap"]
+position = Vector2( 562.556, 1212.65 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 6, 197, 20, 20 )
+script = ExtResource( 19 )
+
 [node name="Jared" type="Sprite" parent="GameMap"]
 editor/display_folded = true
 position = Vector2( 963.838, 979.01 )
@@ -394,7 +402,7 @@ margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -477,10 +485,10 @@ margin_bottom = 39.4744
 custom_fonts/font = SubResource( 8 )
 text = "MENU"
 flat = true
-[connection signal="bob_destroy_totem" from="." to="GameMap/Bob" method="_on_StoryExample_bob_destroy_totem"]
+[connection signal="bob_destroy_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_destroy_totem"]
 [connection signal="bob_rest" from="." to="GameMap/Bob" method="_on_StoryExample_bob_rest"]
 [connection signal="bob_run_from_witch" from="." to="GameMap/Bob" method="_on_StoryExample_bob_run_from_witch"]
-[connection signal="bob_show_totem" from="." to="GameMap/Bob" method="_on_StoryExample_bob_show_totem"]
+[connection signal="bob_show_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_show_totem"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
