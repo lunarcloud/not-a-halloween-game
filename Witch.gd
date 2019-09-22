@@ -23,3 +23,7 @@ func _on_StoryExample_witch_enter_laughing():
 
 func _on_StoryExample_witch_throw_fireball():
 	pass # Replace with function body.
+
+
+func _on_StoryExample_witch_back_to_hotel():
+	pass # Replace with function body.

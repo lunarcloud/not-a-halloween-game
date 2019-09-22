@@ -16,6 +16,7 @@ signal fog_clear
 signal bob_run_from_witch
 signal witch_enter_attacking_bob
 signal witch_throw_fireball
+signal witch_back_to_hotel
 signal bob_show_totem
 signal bob_destroy_totem
 signal bob_rest
@@ -108,6 +109,8 @@ func _process_tags(tags):
 			emit_signal("witch_enter_attacking_bob")
 		elif (tag == "witch:throw_fireball"):
 			emit_signal("witch_throw_fireball")
+		elif (tag == "witch:back_to_hotel"):
+			emit_signal("witch_back_to_hotel")
 		elif (tag == "bob:show_totem"):
 			emit_signal("bob_show_totem")
 		elif (tag == "bob:destroy_totem"):

@@ -497,6 +497,7 @@ flat = true
 [connection signal="play_music" from="." to="MusicPlayer" method="_play_music"]
 [connection signal="stab_bob" from="." to="GameMap/Bob" method="_on_StoryExample_stab_bob"]
 [connection signal="stab_bob" from="." to="GameMap/Player" method="_on_StoryExample_stab_bob"]
+[connection signal="witch_back_to_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_witch_back_to_hotel"]
 [connection signal="witch_enter_attacking_bob" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_attacking_bob"]
 [connection signal="witch_enter_laughing" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_laughing"]
 [connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
