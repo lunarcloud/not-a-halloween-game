@@ -22,6 +22,7 @@ Fishbert: We'll take care of her for ya.
 -> freindly_consequence
 
 = freindly_consequence
+#music:stranded
 Bob: You don't mind if I crash on your couch for a while?
 + No not at all
     Bob: Great. All my stuff was in that hotel, but at least I'm free of that witch.
@@ -33,6 +34,7 @@ Bob: You don't mind if I crash on your couch for a while?
 - -> END
 
 = hostile
+#music:stranded
 Fishbert: Wow, what a jerk.
 (destroy town cutscene) #hidedialog #cutscene:destroy_town  #contshowdialog:3
 #fadetoblack
