@@ -7,6 +7,7 @@ var current_intensity = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initial_intensity = Mat.get_shader_param("OCTAVES")
+	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

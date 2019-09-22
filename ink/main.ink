@@ -24,7 +24,8 @@ Damn hooligans...
 #music:explore
 #hidedialog
 Navigate around the world...
-+ [Jared] 
++ [Jared]
+    #showdialog
     {fire1 and fire2: {~Thanks for taking care of those fires.|What's up? Oh, the brink of destruction you say? Crazy.} | Hey, the graveyard is still burning guy...}
     -> explore_map
 * [Fire1] -> fire1
