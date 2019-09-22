@@ -94,6 +94,8 @@ func _on_story_continued(currentText, currentTags):
 	for choice in choicesContainer.get_children():
 		choice.visible = false
 	_process_tags(currentTags)
+	if currentText == "\n":
+		story.Continue()
 	
 func _process_tags(tags):
 	for tag in tags:

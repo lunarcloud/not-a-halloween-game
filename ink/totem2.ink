@@ -2,7 +2,15 @@
 
 == totem2
 #showdialog
+{ 
+    - bob.chase: -> talk_to
+    - else:
+        That's strange, I wonder what this thing is? 
+        -> explore_map
+}
 
+= talk_to
+#showdialog
 { 
     - totem1:
         {totem1.wrong: Hey now, if you thought the other one was hard, watch out for me! Dare you? | Scared of us? Want to try me? }

@@ -2,8 +2,8 @@
 
 == bob
 {last_totem: -> bad_news}
-#showdialog
-hello
+
+hello #showdialog
 
 -> explore_map
 
