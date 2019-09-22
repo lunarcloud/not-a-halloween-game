@@ -15,7 +15,7 @@
     - totem1:
         {totem1.wrong: Hey now, if you thought the other one was hard, watch out for me! Dare you? | Scared of us? Want to try me? }
     - else:
-        {not totem2.wrong: Hahaha back for more?} Do you dare disturb me?
+        {totem2.wrong: Hahaha back for more?} Do you dare disturb me?
 }
 + [Sure do] 
 + [No, sorry, nevermind] -> explore_map
