@@ -48,13 +48,11 @@ If you throw a golden fishing rod into a blue sea what will it be
 
 = defeat
 No! How could you! #defeat:totem2
-(destroyed) #hidedialog
 {totem1.defeat: -> bob.last_totem }
 
 -> explore_map
 
 = wrong
 Go away kid, come back when you're serious about word-play and lateral thinking.
-. #hidedialog
 
 -> explore_map

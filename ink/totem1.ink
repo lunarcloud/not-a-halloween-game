@@ -51,13 +51,11 @@ You grow it real young. The witch has a big one. It’s a cavernous place, but I
 
 = defeat
 No! How could you! #defeat:totem1 
-(destroyed) #hidedialog
 {totem2.defeat: -> bob.last_totem }
 
 -> explore_map
 
 = wrong
 Go away kid, come back when you're serious about word-play and lateral thinking.
-. #hidedialog
 
 -> explore_map

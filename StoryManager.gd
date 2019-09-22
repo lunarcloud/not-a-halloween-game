@@ -1,6 +1,7 @@
 extends Node
 
 onready var story = get_node("Story")
+onready var timer = get_node("StoryTimer")
 onready var player = get_node("GameMap/Player")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
 onready var label = get_node("CanvasLayer/DialogBox/StoryText")
@@ -9,6 +10,8 @@ onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer"
 
 # Must be in same index numbers as ordered in the ink file
 var choices = PoolStringArray()
+
+var timerAction = ""
 
 signal play_music(name)
 signal fog_worse
@@ -148,6 +151,9 @@ func _process_tags(tags):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
 			dialogBox.visible = true
+		elif (tag.begins_with("contshowdialog:")):
+			timerAction = "contshowdialog"
+			timer.start(float(tag.trim_prefix("contshowdialog:")))
 		elif (tag == "camera:player"):
 			emit_signal("camera_player")
 		elif (tag == "camera:bob"):
@@ -197,5 +203,7 @@ func _on_Player_interact_with(name):
 			
 
 
-func _increase():
-	pass # Replace with function body.
+func _on_StoryTimer_timeout():
+	if timerAction == "contshowdialog":
+		_continue()
+		dialogBox.visible = true

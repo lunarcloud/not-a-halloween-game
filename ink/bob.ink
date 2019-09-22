@@ -15,7 +15,7 @@ Bob: Help ME! #bob:run_from_witch
 Witch: I'll get you yet! #witch:enter_attacking_bob
 Bob: Please, no!
 (watch the cutscene, and put bob out) #hidedialog  #camera:player #witch:throw_fireball
-* [Bob] #showdialog
++ [Bob] #showdialog
 #camera:bob
 Witch: hahahahaha #witch:back_to_hotel
 Bob: Oh my goodness. Thank you for saving me!
@@ -46,12 +46,13 @@ Bob: I'll be down by the southern beach.
 #showdialog
 
 Bob: Did you make your choice?
-* [Yes] 
++ [Yes] 
     Bob: So, you ready to kill me? #witch:enter_laughing
-    * [Yes] I'm ready... -> kill
-    * No[], I'm going to save you yet! -> save_again
-    -
-* [No] -> explore_map
+    + + [Yes] I'm ready... -> kill
+    + + No[], I'm going to save you yet! -> save_again
+    - -
++ [No] 
+- -> explore_map
 
 = kill
 You hesitate, but if it's the only way... #stab_bob
@@ -66,8 +67,7 @@ Sad End.
 
 = save_again
 Bob: What? But the spell, the summoning!? The fish people are coming! #lightning
-(fishmen cutscene) #hidedialog #fishmen:enter_from_sea
-... #showdialog
+(fishmen cutscene) #hidedialog #fishmen:enter_from_sea #contshowdialog:3
 Witch: Yes! Come out of the sea! Take over their homes! Destroy!!
 Bob: What... what have you done?
 Witch: What are they doing? What have you done?
