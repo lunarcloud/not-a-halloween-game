@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -13,10 +13,11 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Bob/Bob.tscn" type="PackedScene" id=12]
 [ext_resource path="res://tiles/spriteSheet.png" type="Texture" id=13]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=14]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=15]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=16]
-[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=17]
+[ext_resource path="res://Fire.gd" type="Script" id=14]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=15]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=16]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=17]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -31,22 +32,22 @@ extents = Vector2( 26.4076, 24.7487 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 15 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 18
-font_data = ExtResource( 15 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="ButtonGroup" id=6]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
-font_data = ExtResource( 16 )
+font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=8]
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 17 )
+font_data = ExtResource( 18 )
 
 [node name="StoryExample" type="Control"]
 anchor_right = 1.0
@@ -259,23 +260,26 @@ position = Vector2( -0.652, -0.284941 )
 shape = SubResource( 3 )
 
 [node name="Fire1" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 626.567, 1107.37 )
 texture = ExtResource( 13 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
+script = ExtResource( 14 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire1/Area2D"]
 shape = SubResource( 3 )
 
+[node name="Timer" type="Timer" parent="GameMap/Fire1"]
+wait_time = 0.4
+
 [node name="Fire2" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 783.481, 1133.9 )
 texture = ExtResource( 13 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
+script = ExtResource( 14 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire2"]
 position = Vector2( 6.10352e-05, 0.970581 )
@@ -283,6 +287,9 @@ position = Vector2( 6.10352e-05, 0.970581 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire2/Area2D"]
 position = Vector2( 0.323425, 0.323486 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="GameMap/Fire2"]
+wait_time = 0.4
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -361,7 +368,7 @@ margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -459,6 +466,8 @@ flat = true
 [connection signal="witch_throw_fireball" from="." to="GameMap/Bob" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
 [connection signal="area_exited" from="GameMap/Bob/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
@@ -476,8 +485,10 @@ flat = true
 [connection signal="area_exited" from="GameMap/Fishman6/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fire1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Fire1/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="GameMap/Fire1/Timer" to="GameMap/Fire1" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="GameMap/Fire2/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Fire2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="GameMap/Fire2/Timer" to="GameMap/Fire2" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="GameMap/Totem1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Totem1/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]

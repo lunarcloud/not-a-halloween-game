@@ -63,6 +63,7 @@ func _ready():
 #	pass
 
 func _quit_to_menu():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://TitleScreen.tscn")
 
 func _input(event):
