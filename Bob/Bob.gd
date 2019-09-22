@@ -28,7 +28,8 @@ func _on_StoryExample_bob_rest():
 
 
 func _on_StoryExample_bob_to_beach():
-	pass # Replace with function body.
+	var south_beach_position = get_parent().get_node("SouthBeach").get_global_position()
+	set_global_position(south_beach_position)
 
 
 func _on_StoryExample_stab_bob():
