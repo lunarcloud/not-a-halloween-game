@@ -45,12 +45,15 @@ func _ready():
 	if story.LoadStory():
 		dialogBox.visible = false
 		continueButton.set_text("Continue")
-		if story.LoadStateFromDisk("user://save.json"):
+		story.LoadStateFromDisk("user://save.json")
+		var loaded_position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
+		if loaded_position != Vector2(0,0):
 			print("loaded story")
 			player.position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
+			story.ChoosePathString("explore_map")
 		else:
 			print("new story")
-		story.Continue()
+		_continue()
 	else:
 		print("Story could not be loaded!")
 

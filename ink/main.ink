@@ -38,7 +38,7 @@ Navigate around the world...
 + {bob.save_again} [Fishman1] -> fishman1
 -
 
--> END
+-> explore_map
 
 = fire1
 #showdialog
