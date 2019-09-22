@@ -55,3 +55,11 @@ func _on_StoryExample_cutscene_destroy_hotel():
 
 func _on_StoryExample_camera_player():
 	camera._set_current(true)
+
+
+func _on_StoryExample_hide_dialog():
+	motor.set_physics_process(true)
+
+
+func _on_StoryExample_show_dialog():
+	motor.set_physics_process(false)

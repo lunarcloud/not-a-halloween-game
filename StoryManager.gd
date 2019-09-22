@@ -44,6 +44,10 @@ signal camera_fishpeople
 signal camera_totem1
 signal camera_totem2
 
+#dialog box
+signal hide_dialog
+signal show_dialog
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -154,8 +158,10 @@ func _process_tags(tags):
 		elif (tag == "cutscene:destroy_town"):
 			emit_signal("cutscene_destroy_town")
 		elif (tag == "hidedialog"):
+			emit_signal("hide_dialog")
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
+			emit_signal("show_dialog")
 			dialogBox.visible = true
 		elif (tag.begins_with("contshowdialog:")):
 			timerAction = "contshowdialog"

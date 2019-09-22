@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -19,13 +19,12 @@
 [ext_resource path="res://Fire.gd" type="Script" id=17]
 [ext_resource path="res://Fireball.gd" type="Script" id=18]
 [ext_resource path="res://Totem.gd" type="Script" id=19]
-[ext_resource path="res://TotemExample.gd" type="Script" id=20]
-[ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=21]
-[ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=22]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=23]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=24]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=25]
-[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=26]
+[ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=20]
+[ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=21]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=22]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=23]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=24]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -40,22 +39,22 @@ extents = Vector2( 14.16, 16.9127 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 24 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 18
-font_data = ExtResource( 24 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="ButtonGroup" id=6]
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
-font_data = ExtResource( 25 )
+font_data = ExtResource( 24 )
 
 [sub_resource type="DynamicFont" id=8]
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 26 )
+font_data = ExtResource( 25 )
 
 [node name="StoryExample" type="Control"]
 anchor_right = 1.0
@@ -82,13 +81,13 @@ script = ExtResource( 5 )
 [node name="MapCanvas" type="CanvasLayer" parent="GameMap"]
 
 [node name="Lightning" type="ColorRect" parent="GameMap/MapCanvas"]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="GameMap/MapCanvas/Lightning"]
-one_shot = true
 
 [node name="Fog" type="TextureRect" parent="GameMap/MapCanvas"]
 visible = false
@@ -124,7 +123,7 @@ runSpeed = 320
 
 [node name="Bob" parent="GameMap" instance=ExtResource( 13 )]
 editor/display_folded = true
-position = Vector2( 1092.61, 269.922 )
+position = Vector2( 1059.13, 296.23 )
 
 [node name="Witch" type="KinematicBody2D" parent="GameMap"]
 editor/display_folded = true
@@ -283,6 +282,7 @@ position = Vector2( -0.652, -0.284941 )
 shape = SubResource( 3 )
 
 [node name="Fire1" type="Sprite" parent="GameMap"]
+editor/display_folded = true
 position = Vector2( 626.567, 1107.37 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -296,9 +296,9 @@ shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fire1"]
 wait_time = 0.4
-one_shot = true
 
 [node name="Fire2" type="Sprite" parent="GameMap"]
+editor/display_folded = true
 position = Vector2( 783.481, 1133.9 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -306,7 +306,7 @@ region_rect = Rect2( 230, 193, 26, 34 )
 script = ExtResource( 17 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire2"]
-position = Vector2( 6.10352e-05, 0.970581 )
+position = Vector2( 6.10352e-005, 0.970581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire2/Area2D"]
 position = Vector2( 0.323425, 0.323486 )
@@ -314,9 +314,9 @@ shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fire2"]
 wait_time = 0.4
-one_shot = true
 
 [node name="Fireball" type="Sprite" parent="GameMap"]
+editor/display_folded = true
 position = Vector2( 820.323, 1212.85 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -325,7 +325,6 @@ script = ExtResource( 18 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fireball"]
 wait_time = 0.4
-one_shot = true
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -356,13 +355,6 @@ position = Vector2( 3.86954, -1.10547 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Totem2/Area2D"]
 position = Vector2( -4.12088, 1.86963 )
 shape = SubResource( 3 )
-
-[node name="TotemExample" type="Sprite" parent="GameMap"]
-position = Vector2( 1661.07, 567.808 )
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 6, 197, 20, 20 )
-script = ExtResource( 20 )
 
 [node name="Jared" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -405,22 +397,22 @@ position = Vector2( 942.101, 1353.68 )
 [node name="FishPeopleCamera" type="Camera2D" parent="GameMap"]
 position = Vector2( 495.592, 1401.59 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 21 )
+script = ExtResource( 20 )
 
 [node name="Totem1Camera" type="Camera2D" parent="GameMap"]
 position = Vector2( 77.4062, 330.014 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 21 )
+script = ExtResource( 20 )
 
 [node name="Totem2Camera" type="Camera2D" parent="GameMap"]
 position = Vector2( 108.091, 1359.34 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 21 )
+script = ExtResource( 20 )
 
 [node name="GraveyardCamera" type="Camera2D" parent="GameMap"]
 position = Vector2( 697.475, 1141.85 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 22 )
+script = ExtResource( 21 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -436,7 +428,7 @@ margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -519,10 +511,8 @@ margin_bottom = 39.4744
 custom_fonts/font = SubResource( 8 )
 text = "MENU"
 flat = true
-[connection signal="bob_destroy_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_destroy_totem"]
 [connection signal="bob_rest" from="." to="GameMap/Bob" method="_on_StoryExample_bob_rest"]
 [connection signal="bob_run_from_witch" from="." to="GameMap/Bob" method="_on_StoryExample_bob_run_from_witch"]
-[connection signal="bob_show_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_show_totem"]
 [connection signal="bob_to_beach" from="." to="GameMap/Bob" method="_on_StoryExample_bob_to_beach"]
 [connection signal="bob_to_totem" from="." to="GameMap/Bob" method="_on_StoryExample_bob_to_totem"]
 [connection signal="camera_bob" from="." to="GameMap/Bob" method="_on_StoryExample_camera_bob"]
@@ -534,32 +524,31 @@ flat = true
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
-[connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
 [connection signal="defeat_totem2" from="." to="GameMap/Totem2" method="defeat"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman2" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
+[connection signal="hide_dialog" from="." to="GameMap/Player" method="_on_StoryExample_hide_dialog"]
 [connection signal="lightning" from="." to="GameMap/MapCanvas/Lightning" method="_flash"]
 [connection signal="play_music" from="." to="MusicPlayer" method="_play_music"]
+[connection signal="show_dialog" from="." to="GameMap/Player" method="_on_StoryExample_show_dialog"]
 [connection signal="stab_bob" from="." to="GameMap/Player" method="_on_StoryExample_stab_bob"]
 [connection signal="witch_back_to_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_witch_back_to_hotel"]
 [connection signal="witch_enter_attacking_bob" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_attacking_bob"]
 [connection signal="witch_enter_laughing" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_laughing"]
-[connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="witch_throw_fireball" from="." to="GameMap/Fireball" method="_on_StoryExample_witch_throw_fireball"]
-[connection signal="timeout" from="StoryTimer" to="." method="_on_StoryTimer_timeout"]
+[connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fishman1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]

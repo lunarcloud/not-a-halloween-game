@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var camera = get_node("Camera2D")
-var lastTotemDefeated = "totem1"
+var lastTotemDefeated = "Totem1"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,16 +33,16 @@ func _on_StoryExample_bob_to_beach():
 	set_global_position(south_beach_position)
 
 func _on_StoryExample_defeat_totem1():
-	lastTotemDefeated = "totem1"
+	lastTotemDefeated = "Totem1"
 
 
 func _on_StoryExample_defeat_totem2():
-	lastTotemDefeated = "totem2"
+	lastTotemDefeated = "Totem2"
 
 
 func _on_StoryExample_bob_to_totem():
-	# TODO move to lastTotemDefeated area
-	pass # Replace with function body.
+	var totem_position = get_parent().get_node(lastTotemDefeated).get_global_position()
+	set_global_position(totem_position)
 
 
 func _on_StoryExample_stab_bob():
