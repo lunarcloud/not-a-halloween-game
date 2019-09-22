@@ -30,6 +30,15 @@ signal fishmen_enter_from_sea
 signal cutscene_destroy_hotel
 signal cutscene_destroy_town
 
+#camera signals
+signal camera_player
+signal camera_bob
+signal camera_witch
+signal camera_graveyard
+signal camera_fishpeople
+signal camera_totem1
+signal camera_totem2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -139,6 +148,20 @@ func _process_tags(tags):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
 			dialogBox.visible = true
+		elif (tag == "camera:player"):
+			emit_signal("camera_player")
+		elif (tag == "camera:bob"):
+			emit_signal("camera_bob")
+		elif (tag == "camera:witch"):
+			emit_signal("camera_witch")
+		elif (tag == "camera:graveyard"):
+			emit_signal("camera_graveyard")
+		elif (tag == "camera:fishpeople"):
+			emit_signal("camera_fishpeople")
+		elif (tag == "camera:totem1"):
+			emit_signal("camera_totem1")
+		elif (tag == "camera:totem2"):
+			emit_signal("camera_totem2")
 		elif (tag == "safe_to_save"):
 			print("saved story")
 			story.SetVariable("PlayerX", player.position.x)

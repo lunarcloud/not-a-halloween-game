@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sad.ogg-8c994b458563397d591c01be4c8865b9.oggstr"
+
+[deps]
+
+source_file="res://music/sad.ogg"
+dest_files=[ "res://.import/sad.ogg-8c994b458563397d591c01be4c8865b9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,8 +1,6 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var camera = get_node("Camera2D")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +25,7 @@ func _on_StoryExample_witch_throw_fireball():
 
 func _on_StoryExample_witch_back_to_hotel():
 	pass # Replace with function body.
+
+
+func _on_StoryExample_camera_witch():
+	camera._set_current(true)

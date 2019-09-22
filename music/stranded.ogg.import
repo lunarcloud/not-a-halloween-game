@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stranded.ogg-9ed3587e1d7098948dae540e65644497.oggstr"
+
+[deps]
+
+source_file="res://music/stranded.ogg"
+dest_files=[ "res://.import/stranded.ogg-9ed3587e1d7098948dae540e65644497.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

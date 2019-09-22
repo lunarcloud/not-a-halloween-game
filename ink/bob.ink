@@ -9,12 +9,14 @@ hello #showdialog
 
 = chase
 #showdialog
+#camera:bob
 
 Bob: Help ME! #bob:run_from_witch
 Witch: I'll get you yet! #witch:enter_attacking_bob
 Bob: Please, no!
-(watch the cutscene, and put bob out) #hidedialog #witch:throw_fireball
+(watch the cutscene, and put bob out) #hidedialog  #camera:player #witch:throw_fireball
 * [Bob] #showdialog
+#camera:bob
 Witch: hahahahaha #witch:back_to_hotel
 Bob: Oh my goodness. Thank you for saving me!
 What was all that about? Is that the cranky old lady who yells a lot at town halls?
@@ -24,7 +26,7 @@ Bob: So, Loretta apparently has quite a beef with the town.
 Bob: It's taken her a long time to do it, but she has these totems all over town. #bob:show_totem
 Bob: I've found this one, but those fireballs did a number on me. #bob:destroy_totem
 Bob: Please, I need you to find and destroy the others... or the fish... #bob:rest
-
+#camera:player
 -> explore_map
 
 = last_totem

@@ -8,3 +8,4 @@ func _ready():
 
 func _on_StoryExample_fishmen_enter_from_sea():
 	visible = true
+

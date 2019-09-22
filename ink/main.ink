@@ -13,6 +13,7 @@ VAR PlayerY = 0
 -> start
 
 == start
+#music:running
 #showdialog
 It's the night before Halloween. I've gotta do some work.
 Jared said there was a fire to put out in the graveyard. *sigh*
@@ -21,7 +22,7 @@ Damn hooligans...
 -> explore_map
 
 == explore_map
-#music:explore
+#music:sad
 #hidedialog
 #safe_to_save
 Navigate around the world...

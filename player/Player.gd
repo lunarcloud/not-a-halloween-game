@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+onready var camera = get_node("Camera2D")
 onready var motor = get_node("motor")
 
 export var walkSpeed = 80
@@ -49,3 +51,7 @@ func _on_StoryExample_cutscene_destroy_town():
 func _on_StoryExample_cutscene_destroy_hotel():
 	pass # Replace with function body.
 
+
+
+func _on_StoryExample_camera_player():
+	camera._set_current(true)

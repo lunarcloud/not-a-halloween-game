@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -15,5 +15,6 @@ func _ready():
 
 func _play_music(name):
 	print("Playing music " + name)
-	stream = load("res://media/music/" + name + ".ogg")
+	self.stream = load("res://music/" + name + ".ogg")
+	#set_stream(newStream)
 	play(0)
