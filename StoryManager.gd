@@ -13,6 +13,22 @@ var choices = PoolStringArray()
 signal play_music(name)
 signal fog_worse
 signal fog_clear
+signal bob_run_from_witch
+signal witch_enter_attacking_bob
+signal witch_throw_fireball
+signal bob_show_totem
+signal bob_destroy_totem
+signal bob_rest
+signal defeat_totem1
+signal defeat_totem2
+signal witch_enter_laughing
+signal stab_bob
+signal lightning
+signal fadetoblack
+signal fishmen_enter_from_sea
+signal cutscene_destroy_hotel
+signal cutscene_destroy_town
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,56 +104,40 @@ func _process_tags(tags):
 		elif (tag == "fog:clear"):
 			emit_signal("fog_clear")
 		elif (tag == "bob:run_from_witch"):
-			#emit_signal("bob_run_from_witch") # TODO
-			pass
+			emit_signal("bob_run_from_witch")
 		elif (tag == "witch:enter_attacking_bob"):
-			#emit_signal("witch_enter_attacking_bob") # TODO
-			pass
+			emit_signal("witch_enter_attacking_bob")
 		elif (tag == "witch:throw_fireball"):
-			#emit_signal("witch_throw_fireball") # TODO
-			pass
+			emit_signal("witch_throw_fireball")
 		elif (tag == "bob:show_totem"):
-			#emit_signal("bob_show_totem") # TODO
-			pass
+			emit_signal("bob_show_totem")
 		elif (tag == "bob:destroy_totem"):
-			#emit_signal("bob_destroy_totem") # TODO
-			pass
+			emit_signal("bob_destroy_totem")
 		elif (tag == "bob:rest"):
-			#emit_signal("bob_rest") # TODO
-			pass
+			emit_signal("bob_rest")
 		elif (tag == "defeat:totem1"):
-			#emit_signal("defeat_totem1") # TODO
-			pass
+			emit_signal("defeat_totem1")
 		elif (tag == "defeat:totem2"):
-			#emit_signal("defeat_totem2") # TODO
-			pass
+			emit_signal("defeat_totem2")
 		elif (tag == "witch:enter_laughing"):
-			#emit_signal("witch_enter_laughing") # TODO
-			pass
+			emit_signal("witch_enter_laughing")
 		elif (tag == "stab_bob"):
-				#emit_signal("stab_bob") # TODO
-			pass
+			emit_signal("stab_bob")
 		elif (tag == "lightning"):
-			#emit_signal("lightning") # TODO
-			pass
+			emit_signal("lightning")
 		elif (tag == "fadetoblack"):
-			#emit_signal("fadetoblack") # TODO
-			pass
+			emit_signal("fadetoblack")
 		elif (tag == "fishmen:enter_from_sea"):
-			#emit_signal("fishmen_enter_from_sea") # TODO
-			pass
+			emit_signal("fishmen_enter_from_sea")
 		elif (tag == "cutscene:destroy_hotel"):
-			#emit_signal("cutscene_destroy_hotel") # TODO
-			pass
+			emit_signal("cutscene_destroy_hotel")
 		elif (tag == "cutscene:destroy_town"):
-			#emit_signal("cutscene_destroy_hotel") # TODO
-			pass
+			emit_signal("cutscene_destroy_town")
 		elif (tag == "hidedialog"):
 			dialogBox.visible = false
 		elif (tag == "showdialog"):
 			dialogBox.visible = true
 		else:
-			# TODO More tags, game specific tags
 			print("Unknown tag " + tag)
 
 func _on_choices(currentChoices):
