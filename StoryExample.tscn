@@ -81,13 +81,13 @@ script = ExtResource( 5 )
 [node name="MapCanvas" type="CanvasLayer" parent="GameMap"]
 
 [node name="Lightning" type="ColorRect" parent="GameMap/MapCanvas"]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="GameMap/MapCanvas/Lightning"]
+one_shot = true
 
 [node name="Fog" type="TextureRect" parent="GameMap/MapCanvas"]
 visible = false
@@ -282,7 +282,6 @@ position = Vector2( -0.652, -0.284941 )
 shape = SubResource( 3 )
 
 [node name="Fire1" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 626.567, 1107.37 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -296,9 +295,9 @@ shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fire1"]
 wait_time = 0.4
+one_shot = true
 
 [node name="Fire2" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 783.481, 1133.9 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -314,9 +313,9 @@ shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fire2"]
 wait_time = 0.4
+one_shot = true
 
 [node name="Fireball" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 820.323, 1212.85 )
 texture = ExtResource( 15 )
 region_enabled = true
@@ -325,6 +324,7 @@ script = ExtResource( 18 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fireball"]
 wait_time = 0.4
+one_shot = true
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
