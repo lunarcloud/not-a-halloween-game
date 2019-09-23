@@ -33,7 +33,7 @@ Bob: You don't mind if I crash on your couch for a while?
     Don't be a jerk, player 
     -> freindly_consequence
     -
-- -> END
+- -> credits
 
 = hostile
 #music:stranded
@@ -42,4 +42,4 @@ Fishbert: Wow, what a jerk.
 Bob: Let's get out of this town! #showdialog #fadetoblack
 I guess we'll grab the last boat out of here and part ways...
 (Bad End)
--> END
+-> credits

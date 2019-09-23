@@ -6,6 +6,7 @@ INCLUDE totem1.ink
 INCLUDE totem2.ink
 INCLUDE witch.ink
 INCLUDE fishmen.ink
+INCLUDE credits.ink
 
 VAR PlayerX = 0
 VAR PlayerY = 0

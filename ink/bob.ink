@@ -63,7 +63,7 @@ Witch: The spell! It's failing! Noooo
 Witch: It's going to take forever scowling ebay for more totems! I can't afford that 'buy it now' price!
 Sad End.
 
--> END
+-> credits
 
 = save_again
 Bob: What? But the spell, the summoning!? The fish people are coming!
