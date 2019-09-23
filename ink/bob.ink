@@ -13,11 +13,11 @@ hello #showdialog
 
 Bob: Help ME! #bob:run_from_witch
 Witch: I'll get you yet! #witch:enter_attacking_bob
-Bob: Please, no!
-(watch the cutscene, and put bob out) #hidedialog  #camera:player #witch:throw_fireball
-+ [Bob] #showdialog
-#camera:bob
+Bob: Please, no! #witch:throw_fireball
 Witch: hahahahaha #witch:back_to_hotel
+(watch the cutscene, and put bob out) #hidedialog  #camera:player
++ [Bob] #showdialog #bob:extinguish
+#camera:bob
 Bob: Oh my goodness. Thank you for saving me!
 What was all that about? Is that the cranky old lady who yells a lot at town halls?
 Bob: Yeah... she's my landlord. It's been awful since I moved here.

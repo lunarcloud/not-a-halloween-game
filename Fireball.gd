@@ -8,8 +8,6 @@ func _ready():
 
 func _on_StoryExample_witch_throw_fireball():
 	visible = true
-	# TODO move toward Bob
-	timer.start()
 
-func _on_Timer_timeout():
+func _on_StoryExample_bob_extinguish():
 	visible = false
