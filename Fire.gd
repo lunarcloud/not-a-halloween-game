@@ -1,6 +1,7 @@
 extends Sprite
 
 onready var timer = get_node("Timer")
+onready var sfx = get_node("FireSound2D")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,3 +14,4 @@ func _on_Player_interact_with(name):
 
 func _on_Timer_timeout():
 	visible = false
+	sfx.stop()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fireloop.ogg-3abb3b674317fdb6ca33093e6870f48d.oggstr"
+
+[deps]
+
+source_file="res://sfx/fireloop.ogg"
+dest_files=[ "res://.import/fireloop.ogg-3abb3b674317fdb6ca33093e6870f48d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
