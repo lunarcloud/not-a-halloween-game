@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oceanwavesSmall.ogg-7ae892cb29f5d29f628ece056cbe7a97.oggstr"
+
+[deps]
+
+source_file="res://sfx/oceanwavesSmall.ogg"
+dest_files=[ "res://.import/oceanwavesSmall.ogg-7ae892cb29f5d29f628ece056cbe7a97.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
