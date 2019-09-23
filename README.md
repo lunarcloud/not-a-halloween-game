@@ -2,7 +2,9 @@ Not a Halloween Game
 ==========================
 Sam and Zach's InkJam 2019 Project
 
-Jam Page: https://itch.io/jam/inkjam-2019 
+Jam Page: https://itch.io/jam/inkjam-2019
+
+Itch Page: https://samsarette.itch.io/not-a-halloween-game
 
 Jam Theme: “At the brink”
 
