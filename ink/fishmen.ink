@@ -18,7 +18,7 @@ Fishbert: Hey is that Loretta witch bothering you?
 Fishbert: That's what I thought. She's been a pain in our fins:
 Fishbert: Do this, destroy that, come on land. Wow, demanding much?
 Fishbert: We'll take care of her for ya.
-(destroy hotel cutscene) #hidedialog #cutscene:destroy_hotel  #contshowdialog:3
+(destroy hotel cutscene) #hidedialog #cutscene:destroy_hotel  #contshowdialog:5
 #fadetoblack
 -> freindly_consequence
 
@@ -38,9 +38,8 @@ Bob: You don't mind if I crash on your couch for a while?
 = hostile
 #music:stranded
 Fishbert: Wow, what a jerk.
-(destroy town cutscene) #hidedialog #cutscene:destroy_town  #contshowdialog:3
-#fadetoblack
-Bob: Let's get out of this town! #showdialog
+(destroy town cutscene) #hidedialog #cutscene:destroy_town  #contshowdialog:7
+Bob: Let's get out of this town! #showdialog #fadetoblack
 I guess we'll grab the last boat out of here and part ways...
 (Bad End)
 -> END

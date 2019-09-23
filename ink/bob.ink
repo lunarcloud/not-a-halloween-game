@@ -67,7 +67,7 @@ Sad End.
 
 = save_again
 Bob: What? But the spell, the summoning!? The fish people are coming!
-(fishmen cutscene) #hidedialog #lightning #fishmen:enter_from_sea #contshowdialog:3
+(fishmen cutscene) #hidedialog #lightning #fishmen:enter_from_sea #contshowdialog:5
 Witch: Yes! Come out of the sea! Take over their homes! Destroy!!
 Bob: What... what have you done?
 Witch: What are they doing? What have you done?

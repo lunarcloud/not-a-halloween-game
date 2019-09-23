@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -23,10 +23,13 @@
 [ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=21]
 [ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=22]
 [ext_resource path="res://TownCam.gd" type="Script" id=23]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=24]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=25]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=26]
-[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=27]
+[ext_resource path="res://smoke/1.png" type="Texture" id=24]
+[ext_resource path="res://smoke/2.png" type="Texture" id=25]
+[ext_resource path="res://HotelSmoke.gd" type="Script" id=26]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=27]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=28]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=29]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=30]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -96,24 +99,37 @@ extents = Vector2( 99.8177, 815.268 )
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 273.714, 46.628 )
 
-[sub_resource type="DynamicFont" id=23]
-size = 20
-font_data = ExtResource( 25 )
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "smoke_loop",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=24]
+size = 20
+font_data = ExtResource( 28 )
+
+[sub_resource type="DynamicFont" id=25]
 size = 18
-font_data = ExtResource( 25 )
+font_data = ExtResource( 28 )
 
-[sub_resource type="ButtonGroup" id=25]
-
-[sub_resource type="DynamicFont" id=26]
-size = 48
-font_data = ExtResource( 26 )
+[sub_resource type="ButtonGroup" id=26]
 
 [sub_resource type="DynamicFont" id=27]
+size = 48
+font_data = ExtResource( 29 )
+
+[sub_resource type="DynamicFont" id=28]
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 27 )
+font_data = ExtResource( 30 )
 
 [node name="StoryExample" type="Control"]
 anchor_right = 1.0
@@ -138,6 +154,7 @@ script = ExtResource( 5 )
 [node name="GameMap" type="Node2D" parent="."]
 
 [node name="MapCanvas" type="CanvasLayer" parent="GameMap"]
+editor/display_folded = true
 
 [node name="Lightning" type="ColorRect" parent="GameMap/MapCanvas"]
 editor/display_folded = true
@@ -608,7 +625,67 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 script = ExtResource( 23 )
 
+[node name="HotelSmoke" type="AnimatedSprite" parent="GameMap"]
+visible = false
+position = Vector2( 1634.61, 446.872 )
+scale = Vector2( 1.13787, 1.50485 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke1" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 607.179, 685.383 )
+scale = Vector2( 1.13787, 0.88092 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke2" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 600.703, 464.14 )
+scale = Vector2( 1.54258, 0.796604 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+frame = 1
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke3" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 823.026, 896.914 )
+scale = Vector2( 0.800604, 1.01582 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+frame = 1
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke4" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 289.883, 1141.9 )
+scale = Vector2( 1.13787, 0.762876 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke5" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 956.851, 1151.61 )
+scale = Vector2( 1.13787, 0.577384 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+playing = true
+script = ExtResource( 26 )
+
+[node name="TownSmoke6" type="AnimatedSprite" parent="GameMap"]
+position = Vector2( 1011.49, 289.737 )
+scale = Vector2( 0.735018, 0.423917 )
+frames = SubResource( 23 )
+animation = "smoke_loop"
+playing = true
+script = ExtResource( 26 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 2
 
 [node name="DialogBox" type="NinePatchRect" parent="CanvasLayer"]
@@ -623,7 +700,7 @@ margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 24 )
+texture = ExtResource( 27 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -637,7 +714,7 @@ margin_left = 11.24
 margin_top = 32.1733
 margin_right = -4.85107
 margin_bottom = -30.8267
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 24 )
 text = "story not loaded."
 align = 1
 valign = 1
@@ -657,32 +734,32 @@ alignment = 1
 [node name="Choice1" type="Button" parent="CanvasLayer/DialogBox/ChoicesContainer"]
 margin_right = 341.0
 margin_bottom = 29.0
-custom_fonts/font = SubResource( 24 )
-group = SubResource( 25 )
+custom_fonts/font = SubResource( 25 )
+group = SubResource( 26 )
 text = "Choice 1"
 
 [node name="Choice2" type="Button" parent="CanvasLayer/DialogBox/ChoicesContainer"]
 margin_top = 45.0
 margin_right = 341.0
 margin_bottom = 74.0
-custom_fonts/font = SubResource( 24 )
-group = SubResource( 25 )
+custom_fonts/font = SubResource( 25 )
+group = SubResource( 26 )
 text = "Choice 2"
 
 [node name="Choice3" type="Button" parent="CanvasLayer/DialogBox/ChoicesContainer"]
 margin_top = 90.0
 margin_right = 341.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 24 )
-group = SubResource( 25 )
+custom_fonts/font = SubResource( 25 )
+group = SubResource( 26 )
 text = "Choice 3"
 
 [node name="Choice4" type="Button" parent="CanvasLayer/DialogBox/ChoicesContainer"]
 margin_top = 135.0
 margin_right = 341.0
 margin_bottom = 164.0
-custom_fonts/font = SubResource( 24 )
-group = SubResource( 25 )
+custom_fonts/font = SubResource( 25 )
+group = SubResource( 26 )
 text = "Choice 4"
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox"]
@@ -693,7 +770,7 @@ margin_left = 47.1177
 margin_top = 88.0
 margin_right = -74.3602
 margin_bottom = -91.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 27 )
 text = "End"
 
 [node name="Button" type="Button" parent="CanvasLayer"]
@@ -703,7 +780,7 @@ margin_left = -61.2717
 margin_top = 0.474373
 margin_right = -1.27173
 margin_bottom = 39.4744
-custom_fonts/font = SubResource( 27 )
+custom_fonts/font = SubResource( 28 )
 text = "MENU"
 flat = true
 [connection signal="bob_destroy_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_destroy_totem"]
@@ -722,9 +799,21 @@ flat = true
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman6" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke4" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
 [connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
