@@ -11,17 +11,17 @@
 [ext_resource path="res://Fog.gd" type="Script" id=9]
 [ext_resource path="res://BlackScreen.gd" type="Script" id=10]
 [ext_resource path="res://tiles/mapTiles.tres" type="TileSet" id=11]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Bob/Bob.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Witch.gd" type="Script" id=14]
-[ext_resource path="res://tiles/spriteSheet.png" type="Texture" id=15]
-[ext_resource path="res://Fishman.gd" type="Script" id=16]
-[ext_resource path="res://player/motor.gd" type="Script" id=17]
-[ext_resource path="res://Fire.gd" type="Script" id=18]
-[ext_resource path="res://sfx/fireloop.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Fireball.gd" type="Script" id=20]
-[ext_resource path="res://Totem.gd" type="Script" id=21]
-[ext_resource path="res://TotemExample.gd" type="Script" id=22]
+[ext_resource path="res://Bob/Bob.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Witch.gd" type="Script" id=13]
+[ext_resource path="res://tiles/spriteSheet.png" type="Texture" id=14]
+[ext_resource path="res://Fishman.gd" type="Script" id=15]
+[ext_resource path="res://player/motor.gd" type="Script" id=16]
+[ext_resource path="res://Fire.gd" type="Script" id=17]
+[ext_resource path="res://sfx/fireloop.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Fireball.gd" type="Script" id=19]
+[ext_resource path="res://Totem.gd" type="Script" id=20]
+[ext_resource path="res://TotemExample.gd" type="Script" id=21]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=23]
 [ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=24]
 [ext_resource path="res://TownCam.gd" type="Script" id=25]
@@ -202,25 +202,21 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -65501, 536870975, 0, 34, 536870975, 0, 36, 536870975, 0, 65539, 536870975, 0, 65550, 536870975, 0, 65571, 536870975, 0, 131072, 19, 0, 196611, 19, 0, 196614, 536870931, 0, 196649, 43, 0, 262181, 19, 0, 262183, 536870931, 0, 262185, 43, 0, 327693, 19, 0, 327713, 19, 0, 327721, 43, 0, 393218, 19, 0, 393220, 536870931, 0, 393222, 18, 0, 393239, 19, 0, 393242, 536870931, 0, 393257, 43, 0, 458762, 536870962, 0, 458763, 536870961, 0, 458765, 19, 0, 458768, 536870931, 0, 458772, 536870962, 0, 458773, 536870961, 0, 458779, 536870962, 0, 458780, 536870961, 0, 458782, 32, 0, 458783, 33, 0, 458784, 33, 0, 458785, 33, 0, 458786, 33, 0, 458787, 32, 0, 458793, 43, 0, 524294, 19, 0, 524298, 536870964, 0, 524299, 536870963, 0, 524308, 536870964, 0, 524309, 536870963, 0, 524312, 19, 0, 524314, 536870931, 0, 524315, 536870964, 0, 524316, 536870963, 0, 524318, 33, 0, 524319, 33, 0, 524320, 32, 0, 524321, 32, 0, 524322, 32, 0, 524323, 33, 0, 524329, 43, 0, 589834, 536870966, 0, 589835, 536870965, 0, 589837, 19, 0, 589840, 536870931, 0, 589844, 536870966, 0, 589845, 536870965, 0, 589851, 536870966, 0, 589852, 536870965, 0, 589854, 32, 0, 589855, 32, 0, 589856, 33, 0, 589857, 33, 0, 589858, 32, 0, 589859, 33, 0, 589865, 43, 0, 655390, 33, 0, 655391, 33, 0, 655392, 33, 0, 655393, 33, 0, 655394, 33, 0, 655395, 32, 0, 655397, 19, 0, 655399, 536870931, 0, 655401, 43, 0, 655410, 34, 0, 655411, 35, 0, 720926, 32, 0, 720927, 32, 0, 720928, 32, 0, 720929, 32, 0, 720930, 32, 0, 720931, 32, 0, 720937, 43, 0, 720946, 38, 0, 720947, 39, 0, 786473, 43, 0, 786482, 38, 0, 786483, 39, 0, 851980, 536870962, 0, 851981, 536870961, 0, 851984, 536870962, 0, 851985, 536870961, 0, 851986, 536870962, 0, 851987, 536870961, 0, 851992, 536870962, 0, 851993, 536870961, 0, 851998, 536870962, 0, 851999, 536870961, 0, 852001, 19, 0, 852003, 536870931, 0, 852009, 43, 0, 852018, 38, 0, 852019, 39, 0, 917510, 19, 0, 917512, 536870931, 0, 917514, 536870962, 0, 917515, 536870961, 0, 917516, 536870964, 0, 917517, 536870963, 0, 917518, 536870962, 0, 917519, 536870961, 0, 917520, 536870964, 0, 917521, 536870963, 0, 917522, 536870964, 0, 917523, 536870963, 0, 917524, 536870962, 0, 917525, 536870961, 0, 917526, 536870962, 0, 917527, 536870961, 0, 917528, 536870964, 0, 917529, 536870963, 0, 917530, 536870962, 0, 917531, 536870961, 0, 917532, 536870962, 0, 917533, 536870961, 0, 917534, 536870964, 0, 917535, 536870963, 0, 917536, 536870962, 0, 917537, 536870961, 0, 917545, 43, 0, 917554, 38, 0, 917555, 39, 0, 983050, 536870966, 0, 983051, 536870965, 0, 983052, 536870966, 0, 983053, 536870965, 0, 983054, 536870966, 0, 983055, 536870965, 0, 983056, 536870966, 0, 983057, 536870965, 0, 983058, 536870966, 0, 983059, 536870965, 0, 983060, 536870966, 0, 983061, 536870965, 0, 983062, 536870966, 0, 983063, 536870965, 0, 983064, 536870966, 0, 983065, 536870965, 0, 983066, 536870966, 0, 983067, 536870965, 0, 983068, 536870966, 0, 983069, 536870965, 0, 983070, 536870966, 0, 983071, 536870965, 0, 983072, 536870966, 0, 983073, 536870965, 0, 983077, 19, 0, 983079, 536870931, 0, 983081, 43, 0, 983090, 38, 0, 983091, 39, 0, 1048578, 19, 0, 1048580, 536870931, 0, 1048617, 43, 0, 1048625, 19, 0, 1048626, 40, 0, 1048627, 41, 0, 1048629, 536870931, 0, 1114153, 43, 0, 1179689, 11, 0, 1179697, 19, 0, 1179701, 536870931, 0, 1245223, 6, 0, 1245224, 6, 0, 1310726, 19, 0, 1310728, 536870931, 0, 1310730, 536870962, 0, 1310731, 536870961, 0, 1310738, 536870962, 0, 1310739, 536870961, 0, 1310750, 536870962, 0, 1310751, 536870961, 0, 1310753, 19, 0, 1310755, 536870931, 0, 1310759, 6, 0, 1310760, 6, 0, 1310771, 18, 0, 1376258, 19, 0, 1376260, 536870931, 0, 1376266, 536870964, 0, 1376267, 536870963, 0, 1376268, 536870962, 0, 1376269, 536870961, 0, 1376270, 536870962, 0, 1376271, 536870961, 0, 1376272, 536870962, 0, 1376273, 536870961, 0, 1376274, 536870964, 0, 1376275, 536870963, 0, 1376276, 536870962, 0, 1376277, 536870961, 0, 1376278, 536870962, 0, 1376279, 536870961, 0, 1376280, 536870962, 0, 1376281, 536870961, 0, 1376282, 536870962, 0, 1376283, 536870961, 0, 1376284, 536870962, 0, 1376285, 536870961, 0, 1376286, 536870964, 0, 1376287, 536870963, 0, 1376288, 536870962, 0, 1376289, 536870961, 0, 1376293, 19, 0, 1376295, 536870931, 0, 1376297, 11, 0, 1376305, 19, 0, 1376309, 536870931, 0, 1441802, 536870966, 0, 1441803, 536870965, 0, 1441804, 536870966, 0, 1441805, 536870965, 0, 1441806, 536870966, 0, 1441807, 536870965, 0, 1441808, 536870966, 0, 1441809, 536870965, 0, 1441810, 536870966, 0, 1441811, 536870965, 0, 1441812, 536870966, 0, 1441813, 536870965, 0, 1441814, 536870966, 0, 1441815, 536870965, 0, 1441816, 536870966, 0, 1441817, 536870965, 0, 1441818, 536870966, 0, 1441819, 536870965, 0, 1441820, 536870966, 0, 1441821, 536870965, 0, 1441822, 536870966, 0, 1441823, 536870965, 0, 1441824, 536870966, 0, 1441825, 536870965, 0, 1441833, 43, 0, 1507369, 43, 0, 1507377, 19, 0, 1507381, 536870931, 0, 1572905, 43, 0, 1638402, 19, 0, 1638404, 536870931, 0, 1638441, 43, 0, 1703942, 19, 0, 1703944, 536870931, 0, 1703952, 34, 0, 1703953, 35, 0, 1703958, 34, 0, 1703959, 35, 0, 1703977, 43, 0, 1769486, 34, 0, 1769487, 35, 0, 1769488, 36, 0, 1769489, 37, 0, 1769490, 34, 0, 1769491, 35, 0, 1769492, 34, 0, 1769493, 35, 0, 1769494, 36, 0, 1769495, 37, 0, 1769496, 34, 0, 1769497, 35, 0, 1769503, 536870962, 0, 1769504, 536870961, 0, 1769505, 19, 0, 1769507, 536870931, 0, 1769509, 19, 0, 1769513, 43, 0, 1835010, 19, 0, 1835012, 536870931, 0, 1835020, 34, 0, 1835021, 35, 0, 1835022, 36, 0, 1835023, 37, 0, 1835024, 38, 0, 1835025, 39, 0, 1835026, 38, 0, 1835027, 39, 0, 1835028, 38, 0, 1835029, 39, 0, 1835030, 38, 0, 1835031, 39, 0, 1835032, 36, 0, 1835033, 37, 0, 1835034, 34, 0, 1835035, 35, 0, 1835039, 536870964, 0, 1835040, 536870963, 0, 1835049, 43, 0, 1900553, 19, 0, 1900554, 18, 0, 1900555, 536870931, 0, 1900556, 40, 0, 1900557, 41, 0, 1900558, 40, 0, 1900559, 41, 0, 1900560, 40, 0, 1900561, 41, 0, 1900562, 40, 0, 1900563, 41, 0, 1900564, 40, 0, 1900565, 41, 0, 1900566, 40, 0, 1900567, 41, 0, 1900568, 40, 0, 1900569, 41, 0, 1900570, 40, 0, 1900571, 41, 0, 1900572, 19, 0, 1900573, 18, 0, 1900574, 536870931, 0, 1900575, 536870966, 0, 1900576, 536870965, 0, 1900585, 43, 0, 1966121, 43, 0, 2031657, 43, 0, 2097154, 19, 0, 2097156, 536870931, 0, 2097158, 19, 0, 2097160, 536870931, 0, 2097193, 43, 0, 2162715, 49, 0, 2162716, 50, 0, 2162729, 43, 0, 2228232, 49, 0, 2228233, 50, 0, 2228239, 536870962, 0, 2228240, 536870961, 0, 2228242, 29, 0, 2228243, 22, 0, 2228244, 29, 0, 2228245, 31, 0, 2228246, 30, 0, 2228247, 31, 0, 2228248, 29, 0, 2228249, 31, 0, 2228251, 51, 0, 2228252, 52, 0, 2228265, 43, 0, 2293768, 51, 0, 2293769, 52, 0, 2293770, 49, 0, 2293771, 50, 0, 2293773, 44, 0, 2293774, 45, 0, 2293775, 536870964, 0, 2293776, 536870963, 0, 2293778, 29, 0, 2293779, 29, 0, 2293780, 30, 0, 2293781, 30, 0, 2293782, 30, 0, 2293783, 30, 0, 2293784, 27, 0, 2293785, 30, 0, 2293787, 51, 0, 2293788, 52, 0, 2293789, 44, 0, 2293790, 45, 0, 2293791, 49, 0, 2293792, 50, 0, 2293793, 19, 0, 2293795, 536870931, 0, 2293801, 43, 0, 2359298, 19, 0, 2359300, 536870931, 0, 2359304, 53, 0, 2359305, 54, 0, 2359306, 53, 0, 2359307, 54, 0, 2359309, 46, 0, 2359310, 47, 0, 2359311, 536870966, 0, 2359312, 536870965, 0, 2359314, 29, 0, 2359315, 30, 0, 2359316, 31, 0, 2359317, 29, 0, 2359318, 31, 0, 2359319, 30, 0, 2359320, 31, 0, 2359321, 29, 0, 2359323, 53, 0, 2359324, 54, 0, 2359325, 46, 0, 2359326, 47, 0, 2359327, 53, 0, 2359328, 54, 0, 2359337, 43, 0, 2424869, 19, 0, 2424871, 536870931, 0, 2424873, 43, 0, 2490374, 19, 0, 2490376, 536870931, 0, 2490409, 43, 0, 2555945, 43, 0, 2621481, 43, 0, 2686976, 1610612796, 0, 2686977, 1610612796, 0, 2686978, 1610612796, 0, 2686979, 1610612796, 0, 2686980, 1610612796, 0, 2686981, 1610612796, 0, 2686982, 1610612796, 0, 2686984, 1610612796, 0, 2686985, 1610612796, 0, 2686986, 1610612796, 0, 2686987, 1610612796, 0, 2686988, 1610612796, 0, 2686989, 1610612796, 0, 2686990, 1610612796, 0, 2686991, 1610612796, 0, 2686992, 1610612796, 0, 2686993, 1610612796, 0, 2686994, 1610612796, 0, 2686995, 1610612796, 0, 2686996, 1610612796, 0, 2686997, 1610612796, 0, 2686998, 1610612796, 0, 2686999, 1610612796, 0, 2687000, 1610612796, 0, 2687001, 1610612796, 0, 2687002, 1610612796, 0, 2687003, 1610612796, 0, 2687004, 1610612796, 0, 2687005, 1610612796, 0, 2687006, 1610612796, 0, 2687007, 1610612796, 0, 2687008, 1610612796, 0, 2687009, 1610612796, 0, 2687010, 1610612796, 0, 2687012, 1610612796, 0, 2687013, 1610612796, 0, 2687014, 1610612796, 0, 2687015, 1610612796, 0, 2687016, 1610612796, 0, 2687017, 1610612796, 0, 2752512, 536870975, 0, 2752513, 1610612795, 0, 2752515, 1610612795, 0, 2752519, 1610612795, 0, 2752521, 1610612795, 0, 2752522, 1610612795, 0, 2752523, 1610612795, 0, 2752524, 1610612795, 0, 2752525, 1610612795, 0, 2752526, 1610612795, 0, 2752527, 1610612795, 0, 2752528, 1610612795, 0, 2752529, 1610612795, 0, 2752530, 1610612795, 0, 2752531, 1610612795, 0, 2752532, 1610612795, 0, 2752533, 1610612795, 0, 2752534, 1610612795, 0, 2752535, 1610612795, 0, 2752536, 1610612795, 0, 2752537, 1610612795, 0, 2752538, 1610612795, 0, 2752539, 1610612795, 0, 2752540, 1610612795, 0, 2752541, 1610612795, 0, 2752542, 1610612795, 0, 2752543, 1610612795, 0, 2752544, 1610612795, 0, 2752545, 1610612795, 0, 2752546, 1610612795, 0, 2752547, 536870971, 0, 2752548, 1610612795, 0, 2752549, 1610612795, 0, 2752550, 1610612795, 0, 2752551, 1610612795, 0, 2752552, 1610612795, 0, 2752553, 1610612795, 0, 2818048, 1610612794, 0, 2818049, 1610612793, 0, 2818050, 1610612793, 0, 2818051, 1610612793, 0, 2818052, 1610612792, 0, 2818053, 1610612794, 0, 2818054, 1610612793, 0, 2818055, 1610612793, 0, 2818056, 1610612792, 0, 2818057, 1610612791, 0, 2818058, 1610612793, 0, 2818059, 1610612792, 0, 2818060, 1610612791, 0, 2818061, 1610612793, 0, 2818062, 1610612793, 0, 2818063, 1610612793, 0, 2818064, 1610612793, 0, 2818065, 1610612792, 0, 2818066, 1610612791, 0, 2818067, 1610612794, 0, 2818068, 1610612793, 0, 2818069, 1610612792, 0, 2818070, 1610612794, 0, 2818071, 1610612792, 0, 2818072, 1610612791, 0, 2818073, 1610612792, 0, 2818074, 1610612794, 0, 2818075, 1610612793, 0, 2818076, 1610612793, 0, 2818077, 1610612792, 0, 2818078, 1610612794, 0, 2818079, 1610612793, 0, 2818080, 1610612793, 0, 2818081, 1610612792, 0, 2818082, 1610612794, 0, 2818083, 1610612793, 0, 2818084, 1610612794, 0, 2818085, 1610612792, 0, 2818086, 1610612791, 0, 2818087, 1610612793, 0, 2818088, 1610612792, 0, 2818089, 1610612794, 0 )
 
-[node name="Player" parent="GameMap" instance=ExtResource( 12 )]
-position = Vector2( 472.483, 292.731 )
-runSpeed = 320
-
-[node name="Bob" parent="GameMap" instance=ExtResource( 13 )]
+[node name="Bob" parent="GameMap" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1059.13, 296.23 )
 
 [node name="Witch" type="KinematicBody2D" parent="GameMap"]
 editor/display_folded = true
 position = Vector2( 1634.5, 545.718 )
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Witch"]
 position = Vector2( 0, 6.62 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="GameMap/Witch"]
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 164, 193, 22, 31 )
 
@@ -236,7 +232,7 @@ zoom = Vector2( 0.3, 0.3 )
 
 [node name="Fishman1" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 599.053, 1437.84 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman1"]
 position = Vector2( 0, 6.62 )
@@ -245,12 +241,12 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman1"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman1"]
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman1/motor"]
 
@@ -263,7 +259,7 @@ shape = SubResource( 3 )
 
 [node name="Fishman2" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 507.149, 1432.61 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman2"]
 position = Vector2( 0, 6.62 )
@@ -272,13 +268,13 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman2"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman2"]
 position = Vector2( 91.904, 5.22998 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman2/motor"]
 
@@ -291,7 +287,7 @@ shape = SubResource( 3 )
 
 [node name="Fishman3" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 771.299, 1421.41 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman3"]
 position = Vector2( 0, 6.62 )
@@ -300,13 +296,13 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman3"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman3"]
 position = Vector2( -172.246, 16.4299 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman3/motor"]
 
@@ -319,7 +315,7 @@ shape = SubResource( 3 )
 
 [node name="Fishman4" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 928.544, 1415.47 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman4"]
 position = Vector2( 0, 6.62 )
@@ -328,13 +324,13 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman4"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman4"]
 position = Vector2( -329.491, 22.37 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman4/motor"]
 
@@ -347,7 +343,7 @@ shape = SubResource( 3 )
 
 [node name="Fishman5" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 1031.43, 1422.69 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman5"]
 position = Vector2( 0, 6.62 )
@@ -356,13 +352,13 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman5"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman5"]
 position = Vector2( -432.377, 15.15 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman5/motor"]
 
@@ -375,7 +371,7 @@ shape = SubResource( 3 )
 
 [node name="Fishman6" type="KinematicBody2D" parent="GameMap"]
 position = Vector2( 396.067, 1443.45 )
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fishman6"]
 position = Vector2( 0, 6.62 )
@@ -384,13 +380,13 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="GameMap/Fishman6"]
 position = Vector2( -0.487793, -0.487793 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 37, 194, 19, 31 )
 
 [node name="motor" type="Node2D" parent="GameMap/Fishman6"]
 position = Vector2( 202.986, -5.60999 )
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fishman6/motor"]
 
@@ -403,10 +399,10 @@ shape = SubResource( 3 )
 
 [node name="Fire1" type="Sprite" parent="GameMap"]
 position = Vector2( 626.567, 1107.37 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
-script = ExtResource( 18 )
+script = ExtResource( 17 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire1"]
 
@@ -417,16 +413,16 @@ shape = SubResource( 3 )
 wait_time = 0.4
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/Fire1"]
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 autoplay = true
 max_distance = 200.0
 
 [node name="Fire2" type="Sprite" parent="GameMap"]
 position = Vector2( 783.481, 1133.9 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
-script = ExtResource( 18 )
+script = ExtResource( 17 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire2"]
 position = Vector2( 6.10352e-005, 0.970581 )
@@ -439,30 +435,30 @@ shape = SubResource( 3 )
 wait_time = 0.4
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/Fire2"]
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 autoplay = true
 max_distance = 200.0
 
 [node name="Fireball" type="Sprite" parent="GameMap"]
 position = Vector2( 1636.08, 579.619 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 
 [node name="Timer" type="Timer" parent="GameMap/Fireball"]
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/Fireball"]
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
 editor/display_folded = true
 position = Vector2( 111.618, 1359.95 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 6, 197, 20, 20 )
-script = ExtResource( 21 )
+script = ExtResource( 20 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Totem1"]
 position = Vector2( -2.78052, 0.794434 )
@@ -474,10 +470,10 @@ shape = SubResource( 3 )
 [node name="Totem2" type="Sprite" parent="GameMap"]
 editor/display_folded = true
 position = Vector2( 65.6896, 329.718 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 6, 197, 20, 20 )
-script = ExtResource( 21 )
+script = ExtResource( 20 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Totem2"]
 position = Vector2( 3.86954, -1.10547 )
@@ -488,15 +484,15 @@ shape = SubResource( 3 )
 
 [node name="TotemExample" type="Sprite" parent="GameMap"]
 position = Vector2( 1670.18, 553.643 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 6, 197, 20, 20 )
-script = ExtResource( 22 )
+script = ExtResource( 21 )
 
 [node name="Jared" type="Sprite" parent="GameMap"]
 editor/display_folded = true
 position = Vector2( 963.838, 979.01 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 200, 193, 17, 31 )
 
@@ -506,6 +502,10 @@ position = Vector2( 3.86954, -1.10547 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Jared/Area2D"]
 position = Vector2( -6.56241, 5.32016 )
 shape = SubResource( 3 )
+
+[node name="Player" parent="GameMap" instance=ExtResource( 22 )]
+position = Vector2( 472.483, 292.731 )
+runSpeed = 320
 
 [node name="Locations" type="Node" parent="GameMap"]
 
@@ -683,14 +683,14 @@ position = Vector2( 1634.61, 446.872 )
 scale = Vector2( 1.13787, 1.50485 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/HotelSmoke"]
 position = Vector2( 1.29175, 88.2128 )
 scale = Vector2( 0.878835, 0.664518 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
+volume_db = -12.146
 max_distance = 200.0
 
 [node name="TownSmoke1" type="AnimatedSprite" parent="GameMap"]
@@ -698,14 +698,13 @@ position = Vector2( 607.179, 685.383 )
 scale = Vector2( 1.13787, 0.88092 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke1"]
 position = Vector2( 904.234, -120.061 )
 scale = Vector2( 0.878835, 1.13518 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="TownSmoke2" type="AnimatedSprite" parent="GameMap"]
@@ -713,13 +712,14 @@ position = Vector2( 600.703, 464.14 )
 scale = Vector2( 1.54258, 0.796604 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke2"]
 position = Vector2( 671.198, 144.964 )
 scale = Vector2( 0.648265, 1.25533 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="TownSmoke3" type="AnimatedSprite" parent="GameMap"]
@@ -727,13 +727,14 @@ position = Vector2( 823.026, 896.914 )
 scale = Vector2( 0.800604, 1.01582 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke3"]
 position = Vector2( 1015.55, -312.354 )
 scale = Vector2( 1.24906, 0.984426 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="TownSmoke4" type="AnimatedSprite" parent="GameMap"]
@@ -741,14 +742,13 @@ position = Vector2( 289.883, 1141.9 )
 scale = Vector2( 1.13787, 0.762876 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke4"]
 position = Vector2( 1183.08, -737.054 )
 scale = Vector2( 0.878835, 1.31083 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="TownSmoke5" type="AnimatedSprite" parent="GameMap"]
@@ -756,14 +756,13 @@ position = Vector2( 956.851, 1151.61 )
 scale = Vector2( 1.13787, 0.577384 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke5"]
 position = Vector2( 596.93, -990.66 )
 scale = Vector2( 0.878835, 1.73195 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="TownSmoke6" type="AnimatedSprite" parent="GameMap"]
@@ -771,14 +770,13 @@ position = Vector2( 1011.49, 289.737 )
 scale = Vector2( 0.735018, 0.423917 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke6"]
 position = Vector2( 849.761, 683.818 )
 scale = Vector2( 1.36051, 2.35895 )
-stream = ExtResource( 19 )
+stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -886,7 +884,7 @@ modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 672.601, 707.397 )
 stream = ExtResource( 33 )
-volume_db = -4.556
+volume_db = -1.38
 autoplay = true
 max_distance = 1000.0
 attenuation = 0.00571907
@@ -1107,9 +1105,6 @@ disabled = true
 [connection signal="witch_to_beach" from="." to="GameMap/Witch" method="_on_StoryExample_witch_to_beach"]
 [connection signal="timeout" from="StoryTimer" to="." method="_on_StoryTimer_timeout"]
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
-[connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fishman1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
@@ -1136,6 +1131,9 @@ disabled = true
 [connection signal="area_exited" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_quit_to_menu"]
 
 [editable path="GameMap/Bob"]
