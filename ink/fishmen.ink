@@ -4,7 +4,7 @@
 #showdialog
 Fishbert: Hey, do you mind if we hang around for a while?
 + [Why not?] -> freindly
-+ [Go back to the depths from whence you came!] -> hostile
++ Go [Away!] back to the depths from whence you came! -> hostile
 
 = freindly
 Fishbert: Radical! Thanks dude.
