@@ -306,7 +306,7 @@ region_rect = Rect2( 230, 193, 26, 34 )
 script = ExtResource( 17 )
 
 [node name="Area2D" type="Area2D" parent="GameMap/Fire2"]
-position = Vector2( 6.10352e-005, 0.970581 )
+position = Vector2( 6.10352e-05, 0.970581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameMap/Fire2/Area2D"]
 position = Vector2( 0.323425, 0.323486 )
@@ -527,12 +527,12 @@ flat = true
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
 [connection signal="defeat_totem2" from="." to="GameMap/Totem2" method="defeat"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman2" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
 [connection signal="hide_dialog" from="." to="GameMap/Player" method="_on_StoryExample_hide_dialog"]
@@ -543,12 +543,13 @@ flat = true
 [connection signal="witch_back_to_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_witch_back_to_hotel"]
 [connection signal="witch_enter_attacking_bob" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_attacking_bob"]
 [connection signal="witch_enter_laughing" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_laughing"]
-[connection signal="witch_throw_fireball" from="." to="GameMap/Fireball" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
+[connection signal="witch_throw_fireball" from="." to="GameMap/Fireball" method="_on_StoryExample_witch_throw_fireball"]
+[connection signal="timeout" from="StoryTimer" to="." method="_on_StoryTimer_timeout"]
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="area_entered" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Witch/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Fishman1/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]

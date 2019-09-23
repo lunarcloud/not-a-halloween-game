@@ -8,7 +8,9 @@ var normalResolution = Vector2(1280,720)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	play.grab_focus()
+	# play.grab_focus()
+	reset.grab_focus()
+	
 	play.connect("pressed", self, "_play")
 	reset.connect("pressed", self, "_reset")
 	quit.connect("pressed", self, "_quit")
