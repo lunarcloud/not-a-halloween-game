@@ -55,9 +55,9 @@ Bob: Did you make your choice?
 - -> explore_map
 
 = kill
-You hesitate, but if it's the only way... #stab_bob
+You hesitate, but if it's the only way... #witch:to_beach
 Witch: What's happening? #fog:clear
-Bob: Take care of my cat for me... and always check your rental agreement...
+Bob: Take care of my cat for me... and always check your rental agreement...  #bob:stab
 #fadetoblack
 Witch: The spell! It's failing! Noooo
 Witch: It's going to take forever scowling ebay for more totems! I can't afford that 'buy it now' price!
