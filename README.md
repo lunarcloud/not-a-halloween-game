@@ -27,3 +27,8 @@ If you forgot this, just do
 ```
 git submodule init && git submodule update
 ```
+
+Godot Plugin
+--------------
+When you first pull the project, ignore any initial errors. 
+You'll have to go to project settings -> plugins and enable the plugin for ink.
