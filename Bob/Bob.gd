@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 onready var camera = get_node("Camera2D")
+onready var near_totem1 = get_parent().get_node("Locations/BobPos2Totem1").get_global_position()
+onready var near_totem2 = get_parent().get_node("Locations/BobPos2Totem2").get_global_position()
+onready var south_beach_position = get_parent().get_node("SouthBeach").get_global_position()
 var lastTotemDefeated = "Totem1"
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +32,6 @@ func _on_StoryExample_bob_rest():
 
 
 func _on_StoryExample_bob_to_beach():
-	var south_beach_position = get_parent().get_node("SouthBeach").get_global_position()
 	set_global_position(south_beach_position)
 
 func _on_StoryExample_defeat_totem1():
@@ -41,8 +43,8 @@ func _on_StoryExample_defeat_totem2():
 
 
 func _on_StoryExample_bob_to_totem():
-	var totem_position = get_parent().get_node(lastTotemDefeated).get_global_position()
-	set_global_position(totem_position)
+	var position = near_totem1 if lastTotemDefeated == "Totem1" else near_totem2
+	set_global_position(position)
 
 
 func _on_StoryExample_stab_bob():

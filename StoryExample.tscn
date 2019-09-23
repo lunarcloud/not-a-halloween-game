@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -431,7 +431,6 @@ position = Vector2( -6.56241, 5.32016 )
 shape = SubResource( 3 )
 
 [node name="Locations" type="Node" parent="GameMap"]
-editor/display_folded = true
 
 [node name="BobPos1" type="Node2D" parent="GameMap/Locations"]
 position = Vector2( 540, 1220 )
@@ -440,7 +439,7 @@ position = Vector2( 540, 1220 )
 position = Vector2( 850.945, 1214.85 )
 
 [node name="BobPos2Totem1" type="Node2D" parent="GameMap/Locations"]
-position = Vector2( 165.63, 1337.86 )
+position = Vector2( 314.543, 862.241 )
 
 [node name="BobPos2Totem2" type="Node2D" parent="GameMap/Locations"]
 position = Vector2( 119.588, 353.977 )
@@ -475,6 +474,7 @@ zoom = Vector2( 0.3, 0.3 )
 script = ExtResource( 22 )
 
 [node name="mapColliders" type="StaticBody2D" parent="GameMap"]
+editor/display_folded = true
 
 [node name="wall5" type="CollisionShape2D" parent="GameMap/mapColliders"]
 position = Vector2( 749.158, 86.53 )
@@ -706,12 +706,13 @@ flat = true
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
+[connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
 [connection signal="defeat_totem2" from="." to="GameMap/Totem2" method="defeat"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
