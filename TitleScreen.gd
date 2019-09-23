@@ -15,13 +15,13 @@ func _ready():
 	reset.connect("pressed", self, "_reset")
 	quit.connect("pressed", self, "_quit")
 	
-	var dir = Directory.new()
-	if dir.file_exists("user://save.json"):
-		reset.visible = true
-		play.set_text("Continue")
-	else:
-		reset.visible = false
-		play.set_text("New Game")
+	#var dir = Directory.new()
+	#if dir.file_exists("user://save.json"):
+	#	reset.visible = true
+	#	play.set_text("Continue")
+	#else:
+	#	reset.visible = false
+	#	play.set_text("New Game")
 		
 	
 	fullscreenToggle.pressed = OS.window_fullscreen
