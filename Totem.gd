@@ -1,5 +1,6 @@
 extends Sprite
 
+onready var sfx = get_node("AudioStreamPlayer2D")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,3 +15,4 @@ func _ready():
 
 func defeat():
 	visible = false
+	sfx.play(0)

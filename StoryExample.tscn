@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://addons/paulloz.ink/InkStory.cs" type="Script" id=2]
@@ -20,21 +20,22 @@
 [ext_resource path="res://sfx/fireloop.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Fireball.gd" type="Script" id=19]
 [ext_resource path="res://Totem.gd" type="Script" id=20]
-[ext_resource path="res://TotemExample.gd" type="Script" id=21]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=23]
-[ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=24]
-[ext_resource path="res://TownCam.gd" type="Script" id=25]
-[ext_resource path="res://smoke/1.png" type="Texture" id=26]
-[ext_resource path="res://smoke/2.png" type="Texture" id=27]
-[ext_resource path="res://HotelSmoke.gd" type="Script" id=28]
-[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=29]
-[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=30]
-[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=31]
-[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=32]
-[ext_resource path="res://sfx/windyBG.ogg" type="AudioStream" id=33]
-[ext_resource path="res://sfx/oceanwavesBig.ogg" type="AudioStream" id=34]
-[ext_resource path="res://sfx/oceanwavesSmall.ogg" type="AudioStream" id=35]
+[ext_resource path="res://sfx/explosion-and-fire.ogg" type="AudioStream" id=21]
+[ext_resource path="res://TotemExample.gd" type="Script" id=22]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Cameras/FishPeopleCamera.gd" type="Script" id=24]
+[ext_resource path="res://Cameras/GraveyardCamera.gd" type="Script" id=25]
+[ext_resource path="res://TownCam.gd" type="Script" id=26]
+[ext_resource path="res://smoke/1.png" type="Texture" id=27]
+[ext_resource path="res://smoke/2.png" type="Texture" id=28]
+[ext_resource path="res://HotelSmoke.gd" type="Script" id=29]
+[ext_resource path="res://dialog-nineslice.jpg" type="Texture" id=30]
+[ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=31]
+[ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=32]
+[ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=33]
+[ext_resource path="res://sfx/windyBG.ogg" type="AudioStream" id=34]
+[ext_resource path="res://sfx/oceanwavesBig.ogg" type="AudioStream" id=35]
+[ext_resource path="res://sfx/oceanwavesSmall.ogg" type="AudioStream" id=36]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -111,7 +112,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "smoke_loop",
 "speed": 5.0
@@ -119,22 +120,22 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=24]
 size = 20
-font_data = ExtResource( 30 )
+font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=25]
 size = 18
-font_data = ExtResource( 30 )
+font_data = ExtResource( 31 )
 
 [sub_resource type="ButtonGroup" id=26]
 
 [sub_resource type="DynamicFont" id=27]
 size = 48
-font_data = ExtResource( 31 )
+font_data = ExtResource( 32 )
 
 [sub_resource type="DynamicFont" id=28]
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 32 )
+font_data = ExtResource( 33 )
 
 [sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 500, 500 )
@@ -453,7 +454,6 @@ stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="Totem1" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 111.618, 1359.95 )
 texture = ExtResource( 14 )
 region_enabled = true
@@ -467,8 +467,11 @@ position = Vector2( -2.78052, 0.794434 )
 position = Vector2( 3.61401, -0.736206 )
 shape = SubResource( 3 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GameMap/Totem1"]
+stream = ExtResource( 21 )
+volume_db = -5.314
+
 [node name="Totem2" type="Sprite" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 65.6896, 329.718 )
 texture = ExtResource( 14 )
 region_enabled = true
@@ -482,12 +485,22 @@ position = Vector2( 3.86954, -1.10547 )
 position = Vector2( -4.12088, 1.86963 )
 shape = SubResource( 3 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GameMap/Totem2"]
+position = Vector2( 45.9284, 1030.23 )
+stream = ExtResource( 21 )
+volume_db = -5.314
+
 [node name="TotemExample" type="Sprite" parent="GameMap"]
 position = Vector2( 1670.18, 553.643 )
 texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 6, 197, 20, 20 )
-script = ExtResource( 21 )
+script = ExtResource( 22 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GameMap/TotemExample"]
+position = Vector2( -1558.56, 806.307 )
+stream = ExtResource( 21 )
+volume_db = -5.314
 
 [node name="Jared" type="Sprite" parent="GameMap"]
 editor/display_folded = true
@@ -503,7 +516,7 @@ position = Vector2( 3.86954, -1.10547 )
 position = Vector2( -6.56241, 5.32016 )
 shape = SubResource( 3 )
 
-[node name="Player" parent="GameMap" instance=ExtResource( 22 )]
+[node name="Player" parent="GameMap" instance=ExtResource( 23 )]
 position = Vector2( 472.483, 292.731 )
 runSpeed = 320
 
@@ -533,22 +546,22 @@ position = Vector2( 942.101, 1353.68 )
 [node name="FishPeopleCamera" type="Camera2D" parent="GameMap"]
 position = Vector2( 495.592, 1401.59 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 23 )
+script = ExtResource( 24 )
 
 [node name="Totem1Camera" type="Camera2D" parent="GameMap"]
 position = Vector2( 77.4062, 330.014 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 23 )
+script = ExtResource( 24 )
 
 [node name="Totem2Camera" type="Camera2D" parent="GameMap"]
 position = Vector2( 108.091, 1359.34 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 23 )
+script = ExtResource( 24 )
 
 [node name="GraveyardCamera" type="Camera2D" parent="GameMap"]
 position = Vector2( 697.475, 1141.85 )
 zoom = Vector2( 0.3, 0.3 )
-script = ExtResource( 24 )
+script = ExtResource( 25 )
 
 [node name="mapColliders" type="StaticBody2D" parent="GameMap"]
 editor/display_folded = true
@@ -675,7 +688,7 @@ anchor_mode = 0
 zoom = Vector2( 1.3, 1.3 )
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 
 [node name="HotelSmoke" type="AnimatedSprite" parent="GameMap"]
 visible = false
@@ -683,8 +696,9 @@ position = Vector2( 1634.61, 446.872 )
 scale = Vector2( 1.13787, 1.50485 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/HotelSmoke"]
 position = Vector2( 1.29175, 88.2128 )
@@ -698,8 +712,9 @@ position = Vector2( 607.179, 685.383 )
 scale = Vector2( 1.13787, 0.88092 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke1"]
 position = Vector2( 904.234, -120.061 )
@@ -712,9 +727,8 @@ position = Vector2( 600.703, 464.14 )
 scale = Vector2( 1.54258, 0.796604 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke2"]
 position = Vector2( 671.198, 144.964 )
@@ -727,9 +741,8 @@ position = Vector2( 823.026, 896.914 )
 scale = Vector2( 0.800604, 1.01582 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke3"]
 position = Vector2( 1015.55, -312.354 )
@@ -742,8 +755,9 @@ position = Vector2( 289.883, 1141.9 )
 scale = Vector2( 1.13787, 0.762876 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke4"]
 position = Vector2( 1183.08, -737.054 )
@@ -756,8 +770,9 @@ position = Vector2( 956.851, 1151.61 )
 scale = Vector2( 1.13787, 0.577384 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke5"]
 position = Vector2( 596.93, -990.66 )
@@ -770,8 +785,9 @@ position = Vector2( 1011.49, 289.737 )
 scale = Vector2( 0.735018, 0.423917 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 
 [node name="FireSound2D" type="AudioStreamPlayer2D" parent="GameMap/TownSmoke6"]
 position = Vector2( 849.761, 683.818 )
@@ -795,7 +811,7 @@ margin_right = 108.0
 margin_bottom = -20.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 region_rect = Rect2( 0, 0, 480, 480 )
 patch_margin_left = 387
 patch_margin_top = 81
@@ -883,7 +899,7 @@ flat = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 672.601, 707.397 )
-stream = ExtResource( 33 )
+stream = ExtResource( 34 )
 volume_db = -1.38
 autoplay = true
 max_distance = 1000.0
@@ -902,7 +918,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -75.9676, 715.344 )
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -921,7 +937,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1393.55, 700.725 )
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -940,7 +956,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 685.944, 1414.58 )
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -959,7 +975,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 663.295, -171.43 )
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -978,7 +994,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -26.2435, 13.2115 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -997,7 +1013,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1362.13, 17.8705 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1016,7 +1032,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1359.81, 1403.95 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1035,7 +1051,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -21.2359, 1401.23 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1048,6 +1064,8 @@ position = Vector2( 0.954102, -0.376282 )
 position = Vector2( -702.409, 672.336 )
 shape = SubResource( 29 )
 disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 [connection signal="bob_destroy_totem" from="." to="GameMap/TotemExample" method="_on_StoryExample_bob_destroy_totem"]
 [connection signal="bob_extinguish" from="." to="GameMap/Fireball" method="_on_StoryExample_bob_extinguish"]
 [connection signal="bob_rest" from="." to="GameMap/Bob" method="_on_StoryExample_bob_rest"]
@@ -1062,34 +1080,34 @@ disabled = true
 [connection signal="camera_totem1" from="." to="GameMap/Totem1Camera" method="_on_StoryExample_camera_totem1"]
 [connection signal="camera_totem2" from="." to="GameMap/Totem2Camera" method="_on_StoryExample_camera_totem2"]
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman6" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke4" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke4" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
 [connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
 [connection signal="defeat_totem2" from="." to="GameMap/Totem2" method="defeat"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Witch" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
 [connection signal="hide_dialog" from="." to="GameMap/Player" method="_on_StoryExample_hide_dialog"]
@@ -1132,8 +1150,8 @@ disabled = true
 [connection signal="area_entered" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_quit_to_menu"]
 
 [editable path="GameMap/Bob"]

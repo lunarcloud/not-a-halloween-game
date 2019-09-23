@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/explosion-and-fire.ogg-9b24b2ff7f303af48e30621abe80ed42.oggstr"
+
+[deps]
+
+source_file="res://sfx/explosion-and-fire.ogg"
+dest_files=[ "res://.import/explosion-and-fire.ogg-9b24b2ff7f303af48e30621abe80ed42.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
