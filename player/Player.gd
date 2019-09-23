@@ -32,7 +32,8 @@ func _input(event):
 
 
 func _on_Area2D_area_entered(area):
-	touchingName = area.get_parent().get_name()
+	if area.get_parent().visible:
+		touchingName = area.get_parent().get_name()
 
 func _on_Area2D_area_exited(area):
 	var name = area.get_parent().get_name()

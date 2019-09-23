@@ -127,7 +127,6 @@ editor/display_folded = true
 position = Vector2( 1059.13, 296.23 )
 
 [node name="Witch" type="KinematicBody2D" parent="GameMap"]
-editor/display_folded = true
 position = Vector2( 1634.5, 545.718 )
 script = ExtResource( 14 )
 
@@ -317,7 +316,7 @@ shape = SubResource( 3 )
 wait_time = 0.4
 
 [node name="Fireball" type="Sprite" parent="GameMap"]
-position = Vector2( 1636.08, 586.97 )
+position = Vector2( 1636.08, 579.619 )
 texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 230, 193, 26, 34 )
