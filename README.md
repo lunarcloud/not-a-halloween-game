@@ -15,5 +15,13 @@ Design Doc: https://docs.google.com/document/d/1o-7XhnBFqEN3GOiJzpUXyETAG78HoB4F
 
 Godot Plugin
 --------------
-When you first pull the project, ignore any initial errors. 
+When you first pull the project, ignore any initial errors.
 You'll have to go to project settings -> plugins and enable the plugin for ink.
+
+License
+---------
+The code is open source, MIT licensed
+
+"fog.shader" was acquired under it's own MIT license https://github.com/Gonkee/Gonkees-Shaders/blob/01ee74756611269c077258a2e24aa6e3c1b10ec2/LICENSE
+
+The assets are free to learn from, but don't reuse them in your projects without asking.
