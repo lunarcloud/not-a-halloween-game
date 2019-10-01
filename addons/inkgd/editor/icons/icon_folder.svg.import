@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.svg-caf33f9e8078986650468d19e9dd614f.stex"
+path="res://.import/icon_folder.svg-7dcb6b8fb3ebe74c824bbedf29182e9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/paulloz.ink/icon.svg"
-dest_files=[ "res://.import/icon.svg-caf33f9e8078986650468d19e9dd614f.stex" ]
+source_file="res://addons/inkgd/editor/icons/icon_folder.svg"
+dest_files=[ "res://.import/icon_folder.svg-7dcb6b8fb3ebe74c824bbedf29182e9a.stex" ]
 
 [params]
 

@@ -1,6 +1,9 @@
 extends Node
 
-onready var story = get_node("Story")
+var InkRuntime = load("res://addons/inkgd/runtime.gd");
+var Story = load("res://addons/inkgd/runtime/story.gd");
+var story
+
 onready var timer = get_node("StoryTimer")
 onready var player = get_node("GameMap/Player")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
@@ -51,37 +54,73 @@ signal hide_dialog
 signal show_dialog
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	call_deferred("start_story")
+
+func _exit_tree():
+	call_deferred("_remove_runtime")
+
+func _add_runtime():
+	InkRuntime.init(get_tree().root)
+
+func _remove_runtime():
+	InkRuntime.deinit(get_tree().root)
+
+func _load_story():
+	var ink_story = File.new()
+	ink_story.open("res://ink/main.json", File.READ)
+	var content = ink_story.get_as_text()
+	ink_story.close()
+
+	self.story = Story.new(content)
+	return true
+	
+func _save_state():
+	var save_file = File.new()
+	save_file.open("user://save.json", File.WRITE)
+	var json = story.state.to_json();
+	save_file.store_line(json);
+	save_file.close()
+	pass
+	
+func _load_state():
+	var save_file = File.new()
+	save_file.open("user://save.json", File.READ)
+	var json = save_file.get_as_text();
+	var save_exists = !json.empty();
+	if save_exists: story.state.load_json(save_file.get_as_text())
+	save_file.close()
+	return save_exists
+
+func start_story():
+	_add_runtime()
+
 	continueButton.connect("button_up", self, "_continue")
-	story.connect("InkContinued", self, "_on_story_continued")
-	story.connect("InkChoices", self, "_on_choices")
-		
+
 	var index = 0
 	for choice in choicesContainer.get_children():
 		choice.connect("button_up", self, "_select_choice", [index])
 		choice.visible = false
-		index += 1	
-	
-	if story.LoadStory():
+		index += 1
+
+	if _load_story():
+		story.connect("InkContinued", self, "_on_story_continued")
+		story.connect("InkChoices", self, "_on_choices")
+
 		dialogBox.visible = false
 		continueButton.set_text("Continue")
-		story.LoadStateFromDisk("user://save.json")
-		var loaded_position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
+		_load_state()
+		var loaded_position = Vector2(story.variables_state.get("PlayerX"), story.variables_state.get("PlayerY"))
 		if loaded_position != Vector2(0,0):
 			print("loaded story")
-			player.position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
-			story.ChoosePathString("explore_map")
+			player.position = Vector2(story.variables_state.get("PlayerX"), story.variables_state.get("PlayerY"))
+			story.choose_path_string("explore_map")
 		else:
 			print("new story")
 		_continue()
 	else:
 		print("Story could not be loaded!")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _quit_to_menu():
 	# warning-ignore:return_value_discarded
@@ -90,12 +129,21 @@ func _quit_to_menu():
 func _input(event):
 	if event.is_action_pressed("menu"):
 		_quit_to_menu()
-		
+
+func _has_choices():
+	return story.current_choices.size() > 0
 
 func _continue():
-	if (story.CanContinue):
-		story.Continue()
-		if (!story.CanContinue && !story.HasChoices):
+	if (story.can_continue):
+		var text = story.continue()
+		_on_story_continued(text)
+		_process_tags(story.current_tags)
+		if text == "\n": 
+			_continue()
+			return
+		if _has_choices(): 
+			_on_choices(story.current_choices)
+		elif (!story.can_continue):
 			continueButton.set_text("End")
 	else:
 		#delete save file
@@ -104,17 +152,15 @@ func _continue():
 		#load menu
 		_quit_to_menu()
 
-func _on_story_continued(currentText, currentTags):
+func _on_story_continued(currentText):
 	label.set_text(currentText)
 	continueButton.visible = true
 	continueButton.grab_focus()
 	choicesContainer.visible = false
 	for choice in choicesContainer.get_children():
 		choice.visible = false
-	_process_tags(currentTags)
-	if currentText == "\n":
-		story.Continue()
-	
+
+
 func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
@@ -188,9 +234,9 @@ func _process_tags(tags):
 			emit_signal("camera_totem2")
 		elif (tag == "safe_to_save"):
 			print("saved story")
-			story.SetVariable("PlayerX", player.position.x)
-			story.SetVariable("PlayerY", player.position.y)
-			story.SaveStateOnDisk("user://save.json")
+			story.variables_state.set("PlayerX", player.position.x)
+			story.variables_state.set("PlayerY", player.position.y)
+			_save_state()
 		else:
 			print("Unknown tag " + tag)
 
@@ -202,26 +248,27 @@ func _on_choices(currentChoices):
 	for choice in currentChoices:
 		if index < 4:
 			choicesContainer.get_child(index).visible = true
-			choicesContainer.get_child(index).set_text(choice)
+			choicesContainer.get_child(index).set_text(choice.text)
 		index += 1
 	choicesContainer.get_child(0).grab_focus()
 
 func _select_choice(index):
-	story.ChooseChoiceIndex(index)
-	
+	story.choose_choice_index(index)
+	_continue()
+
 func _on_Player_interact_with(name):
+	if !_has_choices(): return
+	
 	if name.begins_with("Fishman"):
 		name = "Fishman1"
 	if dialogBox.visible == false:
 		var index = 0
 		for choice in choices:
-			if choice == name:
-				story.ChooseChoiceIndex(index)
+			if choice.text == name:
+				_select_choice(index)
 				return
 			index += 1
 		print("Couldn't find " + name + " in current choices")
-			
-
 
 func _on_StoryTimer_timeout():
 	if timerAction == "contshowdialog":
