@@ -692,6 +692,7 @@ position = Vector2( 1634.61, 446.872 )
 scale = Vector2( 1.13787, 1.50485 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -707,6 +708,7 @@ position = Vector2( 607.179, 685.383 )
 scale = Vector2( 1.13787, 0.88092 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -721,7 +723,6 @@ position = Vector2( 600.703, 464.14 )
 scale = Vector2( 1.54258, 0.796604 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -736,7 +737,6 @@ position = Vector2( 823.026, 896.914 )
 scale = Vector2( 0.800604, 1.01582 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
-frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -751,6 +751,7 @@ position = Vector2( 289.883, 1141.9 )
 scale = Vector2( 1.13787, 0.762876 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -765,6 +766,7 @@ position = Vector2( 956.851, 1151.61 )
 scale = Vector2( 1.13787, 0.577384 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -779,6 +781,7 @@ position = Vector2( 1011.49, 289.737 )
 scale = Vector2( 0.735018, 0.423917 )
 frames = SubResource( 23 )
 animation = "smoke_loop"
+frame = 1
 playing = true
 script = ExtResource( 28 )
 
@@ -1075,21 +1078,21 @@ disabled = true
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman6" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke4" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
 [connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
@@ -1099,8 +1102,8 @@ disabled = true
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Witch" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
 [connection signal="hide_dialog" from="." to="GameMap/Player" method="_on_StoryExample_hide_dialog"]
@@ -1142,8 +1145,8 @@ disabled = true
 [connection signal="area_exited" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
-[connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
+[connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_quit_to_menu"]
 

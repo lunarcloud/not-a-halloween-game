@@ -1,7 +1,7 @@
 extends Node
 
-var InkRuntime = load("res://addons/inkgd/runtime.gd");
-var Story = load("res://addons/inkgd/runtime/story.gd");
+onready var InkRuntime = load("res://addons/inkgd/runtime.gd");
+onready var Story = load("res://addons/inkgd/runtime/story.gd");
 var story
 
 onready var timer = get_node("StoryTimer")
@@ -104,9 +104,6 @@ func start_story():
 		index += 1
 
 	if _load_story():
-		story.connect("InkContinued", self, "_on_story_continued")
-		story.connect("InkChoices", self, "_on_choices")
-
 		dialogBox.visible = false
 		continueButton.set_text("Continue")
 		_load_state()
