@@ -26,4 +26,8 @@ func _physics_process(delta):
 
 # Switch between touchscreen and joystick/keyboard controls (yes, on the same device even)
 func set_touch(touch_on):
+	if self.touch_on && !touch_on:
+		motor.set_speed(80) # touch off normal speed
+	elif !self.touch_on && touch_on:
+		motor.set_speed(200) # touch on normal speed
 	self.touch_on = touch_on

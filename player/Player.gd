@@ -36,37 +36,9 @@ func _on_touch_button_action():
 			emit_signal("interact_with", touchingName)
 			touchingName = ""
 
-func _on_touch_direction_up():
+func _on_TouchJoystick_move(vector):
 	controller.set_touch(true)
-	motor.set_motion(motor.direction.x, -1)
-
-func _on_touch_direction_down():
-	controller.set_touch(true)
-	motor.set_motion(motor.direction.x, 1)
-
-func _on_touch_direction_left():
-	controller.set_touch(true)
-	motor.set_motion(-1, motor.direction.y)
-
-func _on_touch_direction_right():
-	controller.set_touch(true)
-	motor.set_motion(1, motor.direction.y)
-	
-func _on_touch_direction_released_up():
-	controller.set_touch(true)
-	motor.set_motion(motor.direction.x, 0)
-
-func _on_touch_direction_released_down():
-	controller.set_touch(true)
-	motor.set_motion(motor.direction.x, 0)
-
-func _on_touch_direction_released_left():
-	controller.set_touch(true)
-	motor.set_motion(0, motor.direction.y)
-
-func _on_touch_direction_released_right():
-	controller.set_touch(true)
-	motor.set_motion(0, motor.direction.y)
+	motor.set_motion(vector.x, vector.y)
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().visible:

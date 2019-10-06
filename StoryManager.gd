@@ -5,7 +5,7 @@ onready var ink_manager = get_node("InkRuntimeManager")
 onready var timer = get_node("StoryTimer")
 onready var player = get_node("GameMap/Player")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
-onready var touchControls = get_node("CanvasLayer/TouchControls")
+onready var touchControls = get_node("TouchControlCanvas/TouchControls")
 onready var label = get_node("CanvasLayer/DialogBox/StoryText")
 onready var continueButton = get_node("CanvasLayer/DialogBox/ContinueButton")
 onready var choicesContainer = get_node("CanvasLayer/DialogBox/ChoicesContainer")
@@ -70,7 +70,7 @@ func start_story():
 
 	if ink_manager.load_story():
 		dialogBox.visible = false
-		touchControls.visible = true
+		touchControls.show_if_touch()
 		continueButton.set_text("Continue")
 		ink_manager.load_state()
 		var loaded_position = Vector2(
@@ -88,7 +88,7 @@ func start_story():
 	else:
 		label.set_text("Story could not be loaded!")
 		dialogBox.visible = true
-		touchControls.visible = false
+		touchControls.hide()
 		print("Story could not be loaded!")
 
 
@@ -162,7 +162,7 @@ func _on_StoryTimer_timeout():
 	if timerAction == "contshowdialog":
 		ink_manager.continue()
 		dialogBox.visible = true
-		touchControls.visible = false
+		touchControls.hide()
 
 func _process_tags(tags):
 	for tag in tags:
@@ -215,11 +215,11 @@ func _process_tags(tags):
 		elif (tag == "hidedialog"):
 			emit_signal("hide_dialog")
 			dialogBox.visible = false
-			touchControls.visible = true
+			touchControls.show_if_touch()
 		elif (tag == "showdialog"):
 			emit_signal("show_dialog")
 			dialogBox.visible = true
-			touchControls.visible = false
+			touchControls.hide()
 		elif (tag.begins_with("contshowdialog:")):
 			timerAction = "contshowdialog"
 			timer.start(float(tag.trim_prefix("contshowdialog:")))
