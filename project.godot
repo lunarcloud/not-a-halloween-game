@@ -28,7 +28,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "inkgd" )
+enabled=PoolStringArray( "ink-resource", "inkgd" )
 
 [input]
 

@@ -68,12 +68,15 @@ func _remove_runtime():
 
 func _load_story():
 	var ink_story = File.new()
-	ink_story.open("res://ink/main.json", File.READ)
-	var content = ink_story.get_as_text()
-	ink_story.close()
-
-	self.story = Story.new(content)
-	return true
+	if ink_story.file_exists("res://ink/main.json"):
+		ink_story.open("res://ink/main.json", File.READ)
+		var content = ink_story.get_as_text()
+		ink_story.close()
+		self.story = Story.new(content)
+		return true
+	else:
+		ink_story.close()
+		return false
 	
 func _save_state():
 	var save_file = File.new()
@@ -116,6 +119,8 @@ func start_story():
 			print("new story")
 		_continue()
 	else:
+		label.set_text("Story could not be loaded!")
+		dialogBox.visible = true
 		print("Story could not be loaded!")
 
 
