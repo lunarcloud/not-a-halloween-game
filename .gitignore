@@ -12,3 +12,4 @@ export/
 
 #save files
 save.json
+.inkgd_compiler.cfg

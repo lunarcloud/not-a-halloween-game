@@ -1,6 +1,7 @@
 extends Node
 
-onready var story = get_node("Story")
+onready var ink_manager = get_node("InkRuntimeManager")
+
 onready var timer = get_node("StoryTimer")
 onready var player = get_node("GameMap/Player")
 onready var dialogBox = get_node("CanvasLayer/DialogBox")
@@ -50,38 +51,43 @@ signal camera_totem2
 signal hide_dialog
 signal show_dialog
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	ink_manager.connect("ink_ready", self, "start_story")
+	ink_manager.connect("ink_done", self, "end_of_story")
+	ink_manager.connect("ink_update_text", self, "_on_story_continued")
+	ink_manager.connect("ink_update_tags", self, "_process_tags")
+	ink_manager.connect("ink_update_choices", self, "_on_choices")
+
+func start_story():
 	continueButton.connect("button_up", self, "_continue")
-	story.connect("InkContinued", self, "_on_story_continued")
-	story.connect("InkChoices", self, "_on_choices")
-		
+
 	var index = 0
 	for choice in choicesContainer.get_children():
 		choice.connect("button_up", self, "_select_choice", [index])
 		choice.visible = false
-		index += 1	
-	
-	if story.LoadStory():
+		index += 1
+
+	if ink_manager.load_story():
 		dialogBox.visible = false
 		continueButton.set_text("Continue")
-		story.LoadStateFromDisk("user://save.json")
-		var loaded_position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
+		ink_manager.load_state()
+		var loaded_position = Vector2(
+			ink_manager.story.variables_state.get("PlayerX"), 
+			ink_manager.story.variables_state.get("PlayerY"))
 		if loaded_position != Vector2(0,0):
 			print("loaded story")
-			player.position = Vector2(story.GetVariable("PlayerX"), story.GetVariable("PlayerY"))
-			story.ChoosePathString("explore_map")
+			player.position = Vector2(
+				ink_manager.story.variables_state.get("PlayerX"), 
+				ink_manager.story.variables_state.get("PlayerY"))
+			ink_manager.story.choose_path_string("explore_map")
 		else:
 			print("new story")
-		_continue()
+		ink_manager.continue()
 	else:
+		label.set_text("Story could not be loaded!")
+		dialogBox.visible = true
 		print("Story could not be loaded!")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _quit_to_menu():
 	# warning-ignore:return_value_discarded
@@ -90,31 +96,70 @@ func _quit_to_menu():
 func _input(event):
 	if event.is_action_pressed("menu"):
 		_quit_to_menu()
-		
 
 func _continue():
-	if (story.CanContinue):
-		story.Continue()
-		if (!story.CanContinue && !story.HasChoices):
-			continueButton.set_text("End")
-	else:
+	if continueButton.text == "End":
 		#delete save file
 		var dir = Directory.new()
 		dir.remove("user://save.json")
-		#load menu
+		#back to menu
 		_quit_to_menu()
+	else:
+		ink_manager.continue()
 
-func _on_story_continued(currentText, currentTags):
+func _select_choice(index):
+	ink_manager.continue(index)
+	
+func end_of_story():
+	continueButton.text = "End"
+
+func _on_story_continued(currentText):
 	label.set_text(currentText)
 	continueButton.visible = true
 	continueButton.grab_focus()
+	
+func _on_no_choices():
 	choicesContainer.visible = false
 	for choice in choicesContainer.get_children():
 		choice.visible = false
-	_process_tags(currentTags)
-	if currentText == "\n":
-		story.Continue()
+
+func _on_choices(currentChoices):
+	#clear choices
+	choicesContainer.visible = false
+	for choice in choicesContainer.get_children():
+		choice.visible = false
+		
+	if currentChoices.size() > 0:
+		choices = currentChoices
+		var index = 0
+		continueButton.visible = false
+		choicesContainer.visible = true
+		for choice in currentChoices:
+			if index < 4:
+				choicesContainer.get_child(index).visible = true
+				choicesContainer.get_child(index).set_text(choice.text)
+			index += 1
+		choicesContainer.get_child(0).grab_focus()
+
+func _on_Player_interact_with(name):
+	if !ink_manager.has_choices(): return
 	
+	if name.begins_with("Fishman"):
+		name = "Fishman1"
+	if dialogBox.visible == false:
+		var index = 0
+		for choice in choices:
+			if choice.text == name:
+				_select_choice(index)
+				return
+			index += 1
+		print("Couldn't find " + name + " in current choices")
+
+func _on_StoryTimer_timeout():
+	if timerAction == "contshowdialog":
+		ink_manager.continue()
+		dialogBox.visible = true
+
 func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
@@ -188,42 +233,8 @@ func _process_tags(tags):
 			emit_signal("camera_totem2")
 		elif (tag == "safe_to_save"):
 			print("saved story")
-			story.SetVariable("PlayerX", player.position.x)
-			story.SetVariable("PlayerY", player.position.y)
-			story.SaveStateOnDisk("user://save.json")
+			ink_manager.story.variables_state.set("PlayerX", player.position.x)
+			ink_manager.story.variables_state.set("PlayerY", player.position.y)
+			ink_manager.save_state()
 		else:
 			print("Unknown tag " + tag)
-
-func _on_choices(currentChoices):
-	choices = currentChoices
-	var index = 0
-	continueButton.visible = false
-	choicesContainer.visible = true
-	for choice in currentChoices:
-		if index < 4:
-			choicesContainer.get_child(index).visible = true
-			choicesContainer.get_child(index).set_text(choice)
-		index += 1
-	choicesContainer.get_child(0).grab_focus()
-
-func _select_choice(index):
-	story.ChooseChoiceIndex(index)
-	
-func _on_Player_interact_with(name):
-	if name.begins_with("Fishman"):
-		name = "Fishman1"
-	if dialogBox.visible == false:
-		var index = 0
-		for choice in choices:
-			if choice == name:
-				story.ChooseChoiceIndex(index)
-				return
-			index += 1
-		print("Couldn't find " + name + " in current choices")
-			
-
-
-func _on_StoryTimer_timeout():
-	if timerAction == "contshowdialog":
-		_continue()
-		dialogBox.visible = true
