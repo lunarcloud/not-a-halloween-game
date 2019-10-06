@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-
 onready var camera = get_node("Camera2D")
 onready var motor = get_node("motor")
+onready var controller = get_node("motor/controller")
 
 export var walkSpeed = 80
 export var runSpeed = 120
@@ -30,6 +30,43 @@ func _input(event):
 	elif event.is_action_released("run"):
 		motor.set_speed(walkSpeed)
 
+func _on_touch_button_action():
+	if touchingName != "":
+			print("Triggering " + touchingName)
+			emit_signal("interact_with", touchingName)
+			touchingName = ""
+
+func _on_touch_direction_up():
+	controller.set_touch(true)
+	motor.set_motion(motor.direction.x, -1)
+
+func _on_touch_direction_down():
+	controller.set_touch(true)
+	motor.set_motion(motor.direction.x, 1)
+
+func _on_touch_direction_left():
+	controller.set_touch(true)
+	motor.set_motion(-1, motor.direction.y)
+
+func _on_touch_direction_right():
+	controller.set_touch(true)
+	motor.set_motion(1, motor.direction.y)
+	
+func _on_touch_direction_released_up():
+	controller.set_touch(true)
+	motor.set_motion(motor.direction.x, 0)
+
+func _on_touch_direction_released_down():
+	controller.set_touch(true)
+	motor.set_motion(motor.direction.x, 0)
+
+func _on_touch_direction_released_left():
+	controller.set_touch(true)
+	motor.set_motion(0, motor.direction.y)
+
+func _on_touch_direction_released_right():
+	controller.set_touch(true)
+	motor.set_motion(0, motor.direction.y)
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().visible:
@@ -60,3 +97,4 @@ func _on_StoryExample_hide_dialog():
 
 func _on_StoryExample_show_dialog():
 	motor.set_physics_process(false)
+

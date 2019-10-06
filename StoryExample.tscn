@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://InkRuntimeManager.gd" type="Script" id=2]
@@ -33,9 +33,10 @@
 [ext_resource path="res://font/aileron/Aileron-Black.otf" type="DynamicFontData" id=31]
 [ext_resource path="res://font/aileron/Aileron-Thin.otf" type="DynamicFontData" id=32]
 [ext_resource path="res://font/aileron/Aileron-Heavy.otf" type="DynamicFontData" id=33]
-[ext_resource path="res://sfx/windyBG.ogg" type="AudioStream" id=34]
-[ext_resource path="res://sfx/oceanwavesBig.ogg" type="AudioStream" id=35]
-[ext_resource path="res://sfx/oceanwavesSmall.ogg" type="AudioStream" id=36]
+[ext_resource path="res://big_circle.png" type="Texture" id=34]
+[ext_resource path="res://sfx/windyBG.ogg" type="AudioStream" id=35]
+[ext_resource path="res://sfx/oceanwavesBig.ogg" type="AudioStream" id=36]
+[ext_resource path="res://sfx/oceanwavesSmall.ogg" type="AudioStream" id=37]
 
 [sub_resource type="ShaderMaterial" id=1]
 render_priority = 1
@@ -162,6 +163,7 @@ volume_db = -28.0
 script = ExtResource( 5 )
 
 [node name="GameMap" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="MapCanvas" type="CanvasLayer" parent="GameMap"]
 
@@ -232,6 +234,7 @@ shape = SubResource( 3 )
 zoom = Vector2( 0.3, 0.3 )
 
 [node name="Fishman1" type="KinematicBody2D" parent="GameMap"]
+editor/display_folded = true
 position = Vector2( 599.053, 1437.84 )
 script = ExtResource( 15 )
 
@@ -796,10 +799,10 @@ stream = ExtResource( 18 )
 max_distance = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="DialogBox" type="NinePatchRect" parent="CanvasLayer"]
+editor/display_folded = true
 visible = false
 anchor_left = 0.1
 anchor_top = 1.0
@@ -884,7 +887,7 @@ margin_bottom = -91.0
 custom_fonts/font = SubResource( 27 )
 text = "End"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="MenuButton" type="Button" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -61.2717
@@ -895,11 +898,43 @@ custom_fonts/font = SubResource( 28 )
 text = "MENU"
 flat = true
 
+[node name="TouchControls" type="Node2D" parent="CanvasLayer"]
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/TouchControls"]
+position = Vector2( 1086.88, 501.389 )
+scale = Vector2( 1.22313, 1.22313 )
+normal = ExtResource( 34 )
+visibility_mode = 1
+
+[node name="Up" type="TouchScreenButton" parent="CanvasLayer/TouchControls"]
+position = Vector2( 99.9652, 395.082 )
+scale = Vector2( 1.16115, 1.16115 )
+normal = ExtResource( 34 )
+visibility_mode = 1
+
+[node name="Down" type="TouchScreenButton" parent="CanvasLayer/TouchControls"]
+position = Vector2( 109.485, 558.51 )
+scale = Vector2( 1.07438, 1.07438 )
+normal = ExtResource( 34 )
+visibility_mode = 1
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer/TouchControls"]
+position = Vector2( 33.325, 482.35 )
+scale = Vector2( 1.09917, 1.09917 )
+normal = ExtResource( 34 )
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer/TouchControls"]
+position = Vector2( 176.126, 483.936 )
+scale = Vector2( 1.09917, 1.09917 )
+normal = ExtResource( 34 )
+visibility_mode = 1
+
 [node name="Wind" type="AudioStreamPlayer2D" parent="."]
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 672.601, 707.397 )
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -1.38
 autoplay = true
 max_distance = 1000.0
@@ -918,7 +953,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -75.9676, 715.344 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -937,7 +972,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1393.55, 700.725 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -956,7 +991,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 685.944, 1414.58 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -975,7 +1010,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 663.295, -171.43 )
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -994,7 +1029,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -26.2435, 13.2115 )
-stream = ExtResource( 36 )
+stream = ExtResource( 37 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1013,7 +1048,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1362.13, 17.8705 )
-stream = ExtResource( 36 )
+stream = ExtResource( 37 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1032,7 +1067,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( 1359.81, 1403.95 )
-stream = ExtResource( 36 )
+stream = ExtResource( 37 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1051,7 +1086,7 @@ editor/display_folded = true
 modulate = Color( 0.619608, 0.0431373, 0.0431373, 1 )
 self_modulate = Color( 0.792157, 0.12549, 0.12549, 1 )
 position = Vector2( -21.2359, 1401.23 )
-stream = ExtResource( 36 )
+stream = ExtResource( 37 )
 volume_db = -6.833
 autoplay = true
 max_distance = 700.0
@@ -1080,34 +1115,34 @@ disabled = true
 [connection signal="camera_totem1" from="." to="GameMap/Totem1Camera" method="_on_StoryExample_camera_totem1"]
 [connection signal="camera_totem2" from="." to="GameMap/Totem2Camera" method="_on_StoryExample_camera_totem2"]
 [connection signal="camera_witch" from="." to="GameMap/Witch" method="_on_StoryExample_camera_witch"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman6" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman5" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman2" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman4" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_hotel" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_hotel"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Fishman3" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/HotelSmoke" method="_on_StoryExample_cutscene_destroy_hotel"]
+[connection signal="cutscene_destroy_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_cutscene_destroy_hotel"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke4" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke5" method="_on_StoryExample_cutscene_destroy_town"]
-[connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/Fishman1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownCam" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke1" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke3" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/Player" method="_on_StoryExample_cutscene_destroy_town"]
+[connection signal="cutscene_destroy_town" from="." to="GameMap/TownSmoke2" method="_on_StoryExample_cutscene_destroy_town"]
 [connection signal="defeat_totem1" from="." to="GameMap/Totem1" method="defeat"]
-[connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
+[connection signal="defeat_totem1" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem1"]
 [connection signal="defeat_totem2" from="." to="GameMap/Totem2" method="defeat"]
+[connection signal="defeat_totem2" from="." to="GameMap/Bob" method="_on_StoryExample_defeat_totem2"]
 [connection signal="fadetoblack" from="." to="GameMap/MapCanvas/BlackScreen" method="_fadetoblack"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Witch" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
-[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman6" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman5" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman1" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman4" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Fishman3" method="_on_StoryExample_fishmen_enter_from_sea"]
+[connection signal="fishmen_enter_from_sea" from="." to="GameMap/Witch" method="_on_StoryExample_fishmen_enter_from_sea"]
 [connection signal="fog_clear" from="." to="GameMap/MapCanvas/Fog" method="_clear"]
 [connection signal="fog_worse" from="." to="GameMap/MapCanvas/Fog" method="_increase"]
 [connection signal="hide_dialog" from="." to="GameMap/Player" method="_on_StoryExample_hide_dialog"]
@@ -1118,8 +1153,8 @@ disabled = true
 [connection signal="witch_back_to_hotel" from="." to="GameMap/Witch" method="_on_StoryExample_witch_back_to_hotel"]
 [connection signal="witch_enter_attacking_bob" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_attacking_bob"]
 [connection signal="witch_enter_laughing" from="." to="GameMap/Witch" method="_on_StoryExample_witch_enter_laughing"]
-[connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="witch_throw_fireball" from="." to="GameMap/Fireball" method="_on_StoryExample_witch_throw_fireball"]
+[connection signal="witch_throw_fireball" from="." to="GameMap/Witch" method="_on_StoryExample_witch_throw_fireball"]
 [connection signal="witch_to_beach" from="." to="GameMap/Witch" method="_on_StoryExample_witch_to_beach"]
 [connection signal="timeout" from="StoryTimer" to="." method="_on_StoryTimer_timeout"]
 [connection signal="timeout" from="GameMap/MapCanvas/Lightning/Timer" to="GameMap/MapCanvas/Lightning" method="_on_timer_timeout"]
@@ -1149,9 +1184,18 @@ disabled = true
 [connection signal="area_exited" from="GameMap/Totem2/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="GameMap/Jared/Area2D" to="GameMap/Player" method="_on_Area2D_area_exited"]
+[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire1" method="_on_Player_interact_with"]
 [connection signal="interact_with" from="GameMap/Player" to="." method="_on_Player_interact_with"]
-[connection signal="interact_with" from="GameMap/Player" to="GameMap/Fire2" method="_on_Player_interact_with"]
-[connection signal="button_up" from="CanvasLayer/Button" to="." method="_quit_to_menu"]
+[connection signal="button_up" from="CanvasLayer/MenuButton" to="." method="_quit_to_menu"]
+[connection signal="released" from="CanvasLayer/TouchControls/Interact" to="GameMap/Player" method="_on_touch_button_action"]
+[connection signal="pressed" from="CanvasLayer/TouchControls/Up" to="GameMap/Player" method="_on_touch_direction_up"]
+[connection signal="released" from="CanvasLayer/TouchControls/Up" to="GameMap/Player" method="_on_touch_direction_released_up"]
+[connection signal="pressed" from="CanvasLayer/TouchControls/Down" to="GameMap/Player" method="_on_touch_direction_down"]
+[connection signal="released" from="CanvasLayer/TouchControls/Down" to="GameMap/Player" method="_on_touch_direction_released_down"]
+[connection signal="pressed" from="CanvasLayer/TouchControls/Left" to="GameMap/Player" method="_on_touch_direction_left"]
+[connection signal="released" from="CanvasLayer/TouchControls/Left" to="GameMap/Player" method="_on_touch_direction_released_left"]
+[connection signal="pressed" from="CanvasLayer/TouchControls/Right" to="GameMap/Player" method="_on_touch_direction_right"]
+[connection signal="released" from="CanvasLayer/TouchControls/Right" to="GameMap/Player" method="_on_touch_direction_released_right"]
 
 [editable path="GameMap/Bob"]

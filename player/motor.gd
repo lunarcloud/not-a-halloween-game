@@ -5,6 +5,7 @@ onready var object : KinematicBody2D = get_parent()
 onready var direction = Vector2(0,0)
 export var speed = 80
 
+		
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
