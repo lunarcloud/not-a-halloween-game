@@ -1,10 +1,9 @@
 Not a Halloween Game
 ==========================
 Sam and Zach's InkJam 2019 Project
+
 Jam Theme: “At the brink”
 
-Links
--------
 [Jam Page](https://itch.io/jam/inkjam-2019), [Itch Page](https://samsarette.itch.io/not-a-halloween-game), [Godot Engine (v3.1.1)](https://godotengine.org/download)
 
 
