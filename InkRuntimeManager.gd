@@ -37,25 +37,30 @@ func load_story():
 		self.story = Story.new(content)
 		return true
 	else:
-		ink_story.close()
 		return false
 	
 func save_state(file_name="user://save.json"):
 	var save_file = File.new()
-	save_file.open(file_name, File.WRITE)
-	var json = story.state.to_json();
-	save_file.store_line(json);
-	save_file.close()
-	pass
+	if save_file.file_exists(file_name):
+		save_file.open(file_name, File.WRITE)
+		var json = story.state.to_json();
+		save_file.store_line(json);
+		save_file.close()
+	else:
+		return false
 	
 func load_state(file_name="user://save.json"):
 	var save_file = File.new()
-	save_file.open(file_name, File.READ)
-	var json = save_file.get_as_text();
-	var save_exists = !json.empty();
-	if save_exists: story.state.load_json(save_file.get_as_text())
-	save_file.close()
-	return save_exists
+	if save_file.file_exists(file_name):
+		save_file.open(file_name, File.READ)
+		var json = save_file.get_as_text();
+		var save_exists = !json.empty();
+		if save_exists: 
+			story.state.load_json(save_file.get_as_text())
+		save_file.close()
+		return save_exists
+	else:
+		return false
 
 func has_choices():
 	return story.current_choices != null && story.current_choices.size() > 0

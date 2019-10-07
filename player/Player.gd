@@ -38,7 +38,10 @@ func _on_touch_button_action():
 
 func _on_TouchJoystick_move(vector):
 	controller.set_touch(true)
-	motor.set_motion(vector.x, vector.y)
+	var x = -1 if vector.x < -0.2 else 1 if vector.x > 0.2 else 0
+	var y = -1 if vector.y < -0.2 else 1 if vector.y > 0.2 else 0
+	motor.set_motion(x, y)
+	
 
 func _on_Area2D_area_entered(area):
 	if area.get_parent().visible:
