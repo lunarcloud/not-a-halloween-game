@@ -24,4 +24,6 @@ The code is open source, MIT licensed
 
 "fog.shader" was acquired under it's own MIT license https://github.com/Gonkee/Gonkees-Shaders/blob/01ee74756611269c077258a2e24aa6e3c1b10ec2/LICENSE
 
+The Virtual Joystick was acquired under it's own MIT license https://github.com/lunarcloud/not-a-halloween-game/blob/master/VirtualJoystick/LICENSE from https://github.com/rodrigofbm/Godot-Virtual-Joystick
+
 The assets are free to learn from, but don't reuse them in your projects without asking.
